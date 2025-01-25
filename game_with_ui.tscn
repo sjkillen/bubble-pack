@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://dccth3s7gmban"]
+
+[ext_resource type="PackedScene" uid="uid://bjikoqfg4l3y8" path="res://game.tscn" id="1_ft0x3"]
+[ext_resource type="Script" path="res://game_with_ui.gd" id="1_ye2ji"]
+[ext_resource type="PackedScene" uid="uid://ds6a0icfwpx67" path="res://nlp/poetry_interface.tscn" id="2_ik7ep"]
+[ext_resource type="PackedScene" uid="uid://jvmh2nqy4gnp" path="res://playback.tscn" id="4_2ue5k"]
+
+[node name="PoemEngine" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ye2ji")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="VSplitContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 318)
+render_target_update_mode = 4
+
+[node name="Game" parent="VSplitContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_ft0x3")]
+unique_name_in_owner = true
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="VSplitContainer/SubViewportContainer2"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(1152, 318)
+render_target_update_mode = 4
+
+[node name="PoetryInterface" parent="VSplitContainer/SubViewportContainer2/SubViewport" instance=ExtResource("2_ik7ep")]
+unique_name_in_owner = true
+position = Vector2(511, 122)
+
+[node name="Playback" parent="." instance=ExtResource("4_2ue5k")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+grow_horizontal = 1
+grow_vertical = 0
+
+[node name="Button" parent="Playback" index="0"]
+offset_left = 98.0
+offset_top = -135.0
+offset_right = 223.0
+offset_bottom = -104.0
+
+[node name="TickTimer" type="Timer" parent="."]
+
+[connection signal="pressed" from="Playback/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="TickTimer" to="." method="emit_tick"]
+
+[editable path="Playback"]

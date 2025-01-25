@@ -16,9 +16,6 @@ func _ready() -> void:
 	diphthong.compile(DIPHTHONG)
 	silent.compile(SILENT)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 	
 func count(w:String):
 	var data = silent.sub(w, "")

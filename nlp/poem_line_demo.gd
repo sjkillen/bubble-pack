@@ -14,7 +14,7 @@ var data = default_data
 var ball_center = Vector2(0, 0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	react()
 	
 	if not $PoemLine.is_valid:

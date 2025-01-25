@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyyya1ctw5ftd"]
+
+[sub_resource type="GDScript" id="GDScript_s5dsh"]
+script/source = "extends Node
+
+"
+
+[node name="PoemEngine" type="Node"]
+script = SubResource("GDScript_s5dsh")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://ds6a0icfwpx67"]
+[gd_scene load_steps=3 format=3 uid="uid://ds6a0icfwpx67"]
 
 [ext_resource type="PackedScene" uid="uid://bx6uhv58622fd" path="res://nlp/poem.tscn" id="1_eca3x"]
 [ext_resource type="Script" path="res://nlp/poetry_interface.gd" id="1_n4bmn"]

@@ -23,9 +23,6 @@ func _ready() -> void:
 		load_data(initial_data)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func next():
 	if ix >= lines.size():
