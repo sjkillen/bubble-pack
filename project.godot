@@ -11,5 +11,14 @@ config_version=5
 [application]
 
 config/name="bubble-pack"
+run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameGlobal="*res://game_global.gd"
+
+[physics]
+
+3d/physics_engine="JoltPhysics3D"

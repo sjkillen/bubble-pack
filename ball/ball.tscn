@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpmtcivp5t8d"]
+
+[ext_resource type="Script" path="res://ball/ball.gd" id="1_wefkp"]
+[ext_resource type="Material" uid="uid://b1qsvbd7t5gba" path="res://ball/ball_material.tres" id="2_bim0c"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_cf3j0"]
+resource_local_to_scene = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e40tx"]
+resource_local_to_scene = true
+
+[node name="Ball" type="RigidBody3D"]
+script = ExtResource("1_wefkp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_bim0c")
+mesh = SubResource("SphereMesh_cf3j0")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_e40tx")

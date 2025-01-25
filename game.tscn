@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjikoqfg4l3y8"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_br4d1"]
+[ext_resource type="PackedScene" uid="uid://cjhpvw5xrfmmm" path="res://world/walls.tscn" id="1_e04yj"]
+[ext_resource type="PackedScene" uid="uid://cflavqm37amrf" path="res://spawner/chute.tscn" id="3_explj"]
+[ext_resource type="Script" path="res://lose_zone.gd" id="4_dxybr"]
+
+[sub_resource type="Environment" id="Environment_yy0ew"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5q0a3"]
+size = Vector3(7, 1.85645, 7)
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_br4d1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.545649, 0.838014, 0, -0.838014, -0.545649, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yy0ew")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.832448, -0.25823, 0.490253, 0, 0.884768, 0.466031, -0.554104, -0.387947, 0.736523, 1.9401, 2.96677, 3.34555)
+
+[node name="walls" parent="." instance=ExtResource("1_e04yj")]
+
+[node name="balls" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="chute" parent="." instance=ExtResource("3_explj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15425, 0)
+
+[node name="LoseZone" type="Area3D" parent="."]
+script = ExtResource("4_dxybr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LoseZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.14853, 0)
+shape = SubResource("BoxShape3D_5q0a3")
+
+[connection signal="body_entered" from="LoseZone" to="LoseZone" method="_on_body_entered"]
+[connection signal="body_exited" from="LoseZone" to="LoseZone" method="_on_body_exited"]
