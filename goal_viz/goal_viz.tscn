@@ -1,0 +1,212 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwbs46a84lmh7"]
+
+[ext_resource type="Shader" path="res://goal_viz/goal_fill.gdshader" id="1_l8vkp"]
+[ext_resource type="Script" path="res://goal_viz/goal_viz.gd" id="1_sdaga"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ab7s4"]
+shader = ExtResource("1_l8vkp")
+shader_parameter/empty_color = Color(0.397482, 4.57242e-07, 1.68458e-07, 1)
+shader_parameter/fill_color = Color(0.77, 0.2387, 0.2387, 1)
+shader_parameter/amount = 0.5
+shader_parameter/ideal_amount = 0.5
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_swk61"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p4qow"]
+shader = ExtResource("1_l8vkp")
+shader_parameter/empty_color = Color(2.61711e-07, 0.191761, 0, 1)
+shader_parameter/fill_color = Color(0.3132, 0.87, 0.3132, 1)
+shader_parameter/amount = 0.5
+shader_parameter/ideal_amount = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k80sd"]
+shader = ExtResource("1_l8vkp")
+shader_parameter/empty_color = Color(4.09111e-07, 0, 0.279027, 1)
+shader_parameter/fill_color = Color(0.34, 0.34, 1, 1)
+shader_parameter/amount = 0.5
+shader_parameter/ideal_amount = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bbppv"]
+shader = ExtResource("1_l8vkp")
+shader_parameter/empty_color = Color(0.295867, 0.295866, 0.295866, 1)
+shader_parameter/fill_color = Color(0.894922, 0.894922, 0.894922, 1)
+shader_parameter/amount = 0.5
+shader_parameter/ideal_amount = 0.5
+
+[node name="GoalViz" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sdaga")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 415
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="R_gauge" type="ColorRect" parent="HSplitContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 0.6, 0.6, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/HBoxContainer/R_gauge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="HSplitContainer/HBoxContainer/R_gauge/MarginContainer"]
+material = SubResource("ShaderMaterial_ab7s4")
+layout_mode = 2
+texture = SubResource("CanvasTexture_swk61")
+
+[node name="Label4" type="Label" parent="HSplitContainer/HBoxContainer/R_gauge/MarginContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -172.0
+offset_top = -126.0
+offset_right = 172.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "!"
+horizontal_alignment = 1
+
+[node name="G_gauge" type="ColorRect" parent="HSplitContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.63, 1, 0.63, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/HBoxContainer/G_gauge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="HSplitContainer/HBoxContainer/G_gauge/MarginContainer"]
+material = SubResource("ShaderMaterial_p4qow")
+layout_mode = 2
+texture = SubResource("CanvasTexture_swk61")
+
+[node name="Label3" type="Label" parent="HSplitContainer/HBoxContainer/G_gauge/MarginContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -172.0
+offset_top = -126.0
+offset_right = 172.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "!"
+horizontal_alignment = 1
+
+[node name="B_gauge" type="ColorRect" parent="HSplitContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.61, 0.61, 1, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/HBoxContainer/B_gauge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="HSplitContainer/HBoxContainer/B_gauge/MarginContainer"]
+material = SubResource("ShaderMaterial_k80sd")
+layout_mode = 2
+texture = SubResource("CanvasTexture_swk61")
+
+[node name="Label2" type="Label" parent="HSplitContainer/HBoxContainer/B_gauge/MarginContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -172.0
+offset_top = -126.0
+offset_right = 172.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "!"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="HSplitContainer"]
+layout_mode = 2
+color = Color(0.74978, 0.74978, 0.74978, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="HSplitContainer/ColorRect/MarginContainer"]
+material = SubResource("ShaderMaterial_bbppv")
+layout_mode = 2
+texture = SubResource("CanvasTexture_swk61")
+
+[node name="Label" type="Label" parent="HSplitContainer/ColorRect/MarginContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -171.5
+offset_top = -184.0
+offset_right = 172.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "LOW 
+FILL"
+horizontal_alignment = 1

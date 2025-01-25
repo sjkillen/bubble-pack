@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dp1n2tqv03y25"]
+
+[ext_resource type="Shader" path="res://world/tap_fueltank_material.gdshader" id="1_recku"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_recku")

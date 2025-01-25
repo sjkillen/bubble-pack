@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bocshxu27t8qx"
-path="res://.godot/imported/walls.glb-819175f417c15dbc12fe4e5152f41cb8.scn"
+uid="uid://6bea124lou1q"
+path="res://.godot/imported/tap.glb-c2e5110d406965419b46b0aa6d2e2f9c.scn"
 
 [deps]
 
-source_file="res://world/walls.glb"
-dest_files=["res://.godot/imported/walls.glb-819175f417c15dbc12fe4e5152f41cb8.scn"]
+source_file="res://world/tap.glb"
+dest_files=["res://.godot/imported/tap.glb-c2e5110d406965419b46b0aa6d2e2f9c.scn"]
 
 [params]
 
@@ -30,16 +30,24 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path="res://world/import_walls.gd"
+import_script/path=""
 _subresources={
 "materials": {
-"Material": {
+"FuelTank": {
 "use_external/enabled": true,
-"use_external/path": "res://world/walls_material.tres"
+"use_external/path": "res://world/tap_fueltank_material.tres"
+},
+"Tubes": {
+"use_external/enabled": true,
+"use_external/path": "res://world/tap_tubes_material.tres"
+},
+"Wand": {
+"use_external/enabled": true,
+"use_external/path": "res://world/tap_wand_material.tres"
 }
 },
 "nodes": {
-"PATH:Walls": {
+"PATH:Tap": {
 "generate/physics": true,
 "physics/shape_type": 2
 }

@@ -5,14 +5,29 @@
 [sub_resource type="GDScript" id="GDScript_u4ywa"]
 script/source = "extends Control
 
+@onready var tap1: Tap = %Game/walls/Tap
+@onready var tap2: Tap = %Game/walls/Tap_001
+@onready var tap3: Tap = %Game/walls/Tap_002
 
-func _on_spawn_little_pressed() -> void:
-	var color: Color = [Color(1.0, 0.0, 0.0), Color(0.0, 1.0, 0.0), Color(0.0, 0.0, 1.0)].pick_random()
-	GameGlobal.spawn_ball.emit(randf_range(0.05, 0.3), color)
 
 func _on_spawn_big_pressed() -> void:
 	var color: Color = [Color(1.0, 0.0, 0.0), Color(0.0, 1.0, 0.0), Color(0.0, 0.0, 1.0)].pick_random()
-	GameGlobal.spawn_ball.emit(randf_range(0.3, 0.7), color)
+	if tap1.state == Tap.State.Empty:
+		tap1.command_set_color(color)
+		tap1.command_create_ball()
+		print(\"Ball created\")
+	elif tap1.state == Tap.State.Growing:
+		tap1.command_stop_growing()
+		print(\"Ball stop growing\")
+	elif tap1.state == Tap.State.Holding:
+		tap1.command_release_ball()
+		print(\"Ball released\")
+	else:
+		push_error(\"Unknown state\")
+
+
+func _on_tick_timer_timeout() -> void:
+	%Game.emit_tick()
 "
 
 [node name="TestSpawning" type="Control"]
@@ -39,20 +54,21 @@ layout_mode = 2
 layout_mode = 2
 text = "Spawn Big"
 
-[node name="spawn_little" type="Button" parent="HSplitContainer/VBoxContainer"]
-layout_mode = 2
-text = "Spawn Little"
-
 [node name="SubViewportContainer" type="SubViewportContainer" parent="HSplitContainer"]
 layout_mode = 2
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="HSplitContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(1037, 648)
+size = Vector2i(1052, 648)
 render_target_update_mode = 4
 
 [node name="Game" parent="HSplitContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_ib2e8")]
+unique_name_in_owner = true
+
+[node name="TickTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
 
 [connection signal="pressed" from="HSplitContainer/VBoxContainer/spawn_big" to="." method="_on_spawn_big_pressed"]
-[connection signal="pressed" from="HSplitContainer/VBoxContainer/spawn_little" to="." method="_on_spawn_little_pressed"]
+[connection signal="timeout" from="TickTimer" to="." method="_on_tick_timer_timeout"]

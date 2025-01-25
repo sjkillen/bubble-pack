@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://nx67uqb5hk6o"]
+
+[ext_resource type="PackedScene" uid="uid://6bea124lou1q" path="res://world/tap.glb" id="1_j0lni"]
+[ext_resource type="Script" path="res://world/tap.gd" id="2_hbdnj"]
+
+[node name="tap" instance=ExtResource("1_j0lni")]
+script = ExtResource("2_hbdnj")
+
+[node name="SpawnMarker" type="Marker3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13024, 0.546974, 0)

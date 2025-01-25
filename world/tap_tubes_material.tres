@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://t3plrtvikbgu"]
+
+[ext_resource type="Shader" path="res://world/tap_tubes_material.gdshader" id="1_0m5j8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_0m5j8")

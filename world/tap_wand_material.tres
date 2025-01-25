@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bgtee0nrof8e1"]
+
+[ext_resource type="Shader" path="res://world/tap_wand_material.gdshader" id="1_y7ol8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_y7ol8")
