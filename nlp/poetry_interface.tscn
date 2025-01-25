@@ -37,6 +37,10 @@ metadata/_edit_use_anchors_ = true
 [node name="Poem" parent="A" instance=ExtResource("1_eca3x")]
 position = Vector2(-18, -18)
 scale = Vector2(0.7, 0.7)
+text_1 = Array[String](["hi", "good", "friend"])
+text_2 = Array[String](["autumn", "reflection", "flesh"])
+text_3 = Array[String](["wearing", "out", "shoe"])
+text_4 = Array[String](["god", "over", "tree"])
 
 [node name="B" type="ColorRect" parent="."]
 offset_left = 717.0
@@ -49,6 +53,10 @@ metadata/_edit_use_anchors_ = true
 [node name="Poem" parent="B" instance=ExtResource("1_eca3x")]
 position = Vector2(-20, -16)
 scale = Vector2(0.7, 0.7)
+text_1 = Array[String](["rake", "sickle", "debugger"])
+text_2 = Array[String](["bug", "mantis", "error"])
+text_3 = Array[String](["sleepy", "hibernation", "time"])
+text_4 = Array[String](["morning", "more", "mourning"])
 
 [node name="C" type="ColorRect" parent="."]
 offset_left = -40.0
@@ -61,3 +69,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Poem" parent="C" instance=ExtResource("1_eca3x")]
 position = Vector2(-22, -20)
 scale = Vector2(0.7, 0.7)
+text_1 = Array[String](["reverberate", "incinerate", "incarcerate"])
+text_2 = Array[String](["inclement", "incarnate", "imp"])
+text_3 = Array[String](["origami", "oregon", "oregano"])
+text_4 = Array[String](["elephant", "telephone", "elf"])

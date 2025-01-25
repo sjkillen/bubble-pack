@@ -5,6 +5,9 @@ extends Node2D
 
 @export var is_valid = false
 
+
+@onready var words = [$Delay, $Size, $Colour]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -27,3 +30,9 @@ func parameterize():
 		"size": $Size.text.length() * 20,
 		"delay": $SyllableCounter.count($Delay.text) * CADENCE
 	}
+
+func load_data(data: Array):
+	for i in range(words.size()):
+		words[i].text = data[i]
+		words[i].validate()
+	validate()

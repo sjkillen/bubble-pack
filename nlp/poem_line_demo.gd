@@ -36,5 +36,8 @@ func react():
 	if vis != old_vis:
 		$Ball.visible = vis
 		old_vis = vis
+		
+func load_data(data: Array):
+	$PoemLine.load_data(data)
 	
 	
