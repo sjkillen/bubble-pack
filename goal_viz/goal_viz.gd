@@ -1,3 +1,4 @@
 extends Control
 
-func set_goal_color
+#func set_goal_color(color: Color):
+	

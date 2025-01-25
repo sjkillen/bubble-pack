@@ -1,17 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://ds6a0icfwpx67"]
+[gd_scene load_steps=2 format=3 uid="uid://ds6a0icfwpx67"]
 
 [ext_resource type="PackedScene" uid="uid://bx6uhv58622fd" path="res://nlp/poem.tscn" id="1_eca3x"]
-[ext_resource type="PackedScene" uid="uid://c4ytoedly055d" path="res://nlp/wordnet.tscn" id="1_upmdt"]
 
 [node name="PoetryInterface" type="Node2D"]
 position = Vector2(128, 88)
 
-[node name="Wordnet" parent="." instance=ExtResource("1_upmdt")]
-
 [node name="Arrow2" type="Polygon2D" parent="."]
 position = Vector2(923, 48)
 rotation = 2.35619
-scale = Vector2(1, 1)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(653, 166, 618.812, 166, 574, 166, 572, 189, 523, 154, 570, 108, 572, 134, 652, 134)
 

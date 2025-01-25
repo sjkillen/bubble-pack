@@ -9,6 +9,7 @@ shader_parameter/empty_color = Color(0.397482, 4.57242e-07, 1.68458e-07, 1)
 shader_parameter/fill_color = Color(0.77, 0.2387, 0.2387, 1)
 shader_parameter/amount = 0.5
 shader_parameter/ideal_amount = 0.5
+shader_parameter/ideal_line_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_swk61"]
 
@@ -18,6 +19,7 @@ shader_parameter/empty_color = Color(2.61711e-07, 0.191761, 0, 1)
 shader_parameter/fill_color = Color(0.3132, 0.87, 0.3132, 1)
 shader_parameter/amount = 0.5
 shader_parameter/ideal_amount = 0.5
+shader_parameter/ideal_line_color = Color(0, 1, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k80sd"]
 shader = ExtResource("1_l8vkp")
@@ -25,19 +27,23 @@ shader_parameter/empty_color = Color(4.09111e-07, 0, 0.279027, 1)
 shader_parameter/fill_color = Color(0.34, 0.34, 1, 1)
 shader_parameter/amount = 0.5
 shader_parameter/ideal_amount = 0.5
+shader_parameter/ideal_line_color = Color(0, 0, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bbppv"]
 shader = ExtResource("1_l8vkp")
 shader_parameter/empty_color = Color(0.295867, 0.295866, 0.295866, 1)
 shader_parameter/fill_color = Color(0.894922, 0.894922, 0.894922, 1)
 shader_parameter/amount = 0.5
-shader_parameter/ideal_amount = 0.5
+shader_parameter/ideal_amount = 0.835
+shader_parameter/ideal_line_color = Color(0, 0, 0, 1)
 
 [node name="GoalViz" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sdaga")
