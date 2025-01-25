@@ -1,50 +1,63 @@
-[gd_scene format=3 uid="uid://ds6a0icfwpx67"]
+[gd_scene load_steps=3 format=3 uid="uid://ds6a0icfwpx67"]
+
+[ext_resource type="PackedScene" uid="uid://bx6uhv58622fd" path="res://nlp/poem.tscn" id="1_eca3x"]
+[ext_resource type="PackedScene" uid="uid://c4ytoedly055d" path="res://nlp/wordnet.tscn" id="1_upmdt"]
 
 [node name="PoetryInterface" type="Node2D"]
+position = Vector2(128, 88)
 
-[node name="Arrow" type="Polygon2D" parent="."]
-position = Vector2(3, 380)
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(653, 166, 574, 166, 572, 189, 523, 154, 570, 108, 572, 134, 607.095, 134, 652, 134)
+[node name="Wordnet" parent="." instance=ExtResource("1_upmdt")]
 
 [node name="Arrow2" type="Polygon2D" parent="."]
-position = Vector2(456, -240)
-rotation = 1.5708
+position = Vector2(923, 48)
+rotation = 2.35619
+scale = Vector2(1, 1)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(653, 166, 618.812, 166, 574, 166, 572, 189, 523, 154, 570, 108, 572, 134, 652, 134)
 
-[node name="A" type="ColorRect" parent="."]
-offset_right = 500.0
-offset_bottom = 270.0
-color = Color(0, 0, 0, 1)
-
-[node name="B" type="ColorRect" parent="."]
-offset_left = 652.0
-offset_top = 374.0
-offset_right = 1152.0
-offset_bottom = 644.0
-color = Color(0, 0, 0, 1)
-
-[node name="C" type="ColorRect" parent="."]
-offset_top = 374.0
-offset_right = 500.0
-offset_bottom = 644.0
-color = Color(0, 0, 0, 1)
-
-[node name="D" type="ColorRect" parent="."]
-offset_left = 652.0
-offset_right = 1152.0
-offset_bottom = 270.0
-color = Color(0, 0, 0, 1)
-
-[node name="Arrow3" type="Polygon2D" parent="."]
-position = Vector2(711, 885)
-rotation = -1.5708
+[node name="Arrow" type="Polygon2D" parent="."]
+position = Vector2(180, 753)
+rotation = -0.785398
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(653, 166, 574, 166, 572, 189, 523, 154, 570, 108, 572, 134, 607.095, 134, 652, 134)
 
 [node name="Arrow4" type="Polygon2D" parent="."]
-position = Vector2(1148, 265)
-rotation = 3.14159
+position = Vector2(974, 607)
+rotation = -2.35619
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(653, 166, 618.812, 166, 574, 166, 572, 189, 523, 154, 570, 108, 572, 134, 652, 134)
+
+[node name="A" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_right = 672.0
+offset_bottom = 290.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Poem" parent="A" instance=ExtResource("1_eca3x")]
+position = Vector2(-18, -18)
+scale = Vector2(0.7, 0.7)
+
+[node name="B" type="ColorRect" parent="."]
+offset_left = 717.0
+offset_top = 142.0
+offset_right = 1397.0
+offset_bottom = 432.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Poem" parent="B" instance=ExtResource("1_eca3x")]
+position = Vector2(-20, -16)
+scale = Vector2(0.7, 0.7)
+
+[node name="C" type="ColorRect" parent="."]
+offset_left = -40.0
+offset_top = 374.0
+offset_right = 640.0
+offset_bottom = 664.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Poem" parent="C" instance=ExtResource("1_eca3x")]
+position = Vector2(-22, -20)
+scale = Vector2(0.7, 0.7)

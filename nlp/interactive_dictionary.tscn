@@ -17,12 +17,11 @@ color = Color(0, 0, 0, 1)
 
 [node name="Wordnet" parent="." instance=ExtResource("2_ma1ur")]
 
-[node name="WordInput" parent="." node_paths=PackedStringArray("wordnet") instance=ExtResource("3_3ndnn")]
+[node name="WordInput" parent="." instance=ExtResource("3_3ndnn")]
 offset_left = 291.0
 offset_top = 85.0
 offset_right = 565.0
 offset_bottom = 142.0
-wordnet = NodePath("../Wordnet")
 
 [node name="Go" type="Button" parent="."]
 offset_left = 588.0

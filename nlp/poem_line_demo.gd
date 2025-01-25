@@ -1,9 +1,8 @@
 extends Node2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	ball_center = $Ball.position
 
 
 
@@ -11,6 +10,8 @@ var old_vis = true
 
 var default_data = {"color": "#ffffff", "size": 50, "delay": 1}
 var data = default_data
+
+var ball_center = Vector2(0, 0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -28,7 +29,10 @@ func react():
 	if data["delay"] > 0:
 		vis = t % data["delay"] > (data["delay"] / 2)
 	
-	$Ball.size = Vector2(data["size"], data["size"])
+	var nsize = Vector2(data["size"], data["size"])
+	$Ball.size = nsize
+	$Ball.position = ball_center - nsize / 7
+	
 	if vis != old_vis:
 		$Ball.visible = vis
 		old_vis = vis

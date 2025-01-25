@@ -1,7 +1,5 @@
 extends Node2D
 
-@export var wordnet: Node
-
 @export var CADENCE = 500
 
 
@@ -9,8 +7,6 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for c in [$Delay, $Size, $Colour]:
-		c.wordnet = wordnet
 	
 	$Delay.connect("text_changed", validate)
 	$Size.connect("text_changed", validate)
