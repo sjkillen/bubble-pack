@@ -1,0 +1,3 @@
+[submodule "wordnet-dictionary"]
+	path = nlp/wordnet-dictionary
+	url = https://github.com/whitedark9/wordnet-dictionary.git
