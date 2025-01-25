@@ -13,3 +13,4 @@ func _on_go_pressed() -> void:
 	
 	$PartOfSpeech.text = data["definitions"][0]["partOfSpeech"]
 	$Definition.text = data["definitions"][0]["meaning"]
+	$Syllables.text = str($SyllableCounter.count(word))
