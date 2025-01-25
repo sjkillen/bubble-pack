@@ -1,0 +1,100 @@
+actuator
+alloy
+ansys
+bearing
+belt drive
+bending moment
+bernoulli’s equation
+bevel gear
+boiler
+bolt
+braking system
+bushing
+cad
+cam
+cantilever
+casting
+centrifugal force
+chain drive
+clutch
+cnc
+coefficient of friction
+compressor
+corrosion
+coupling
+crankshaft
+creep
+cycles of concentration
+deflection
+deformation
+degrees of freedom
+density
+drive shaft
+dynamics
+efficiency
+elastic modulus
+elastomer
+energy
+engine
+fatigue
+finite element analysis
+fixture
+flywheel
+force
+fracture mechanics
+friction
+gear
+gear ratio
+hardness
+heat transfer
+hooke’s law
+hydraulics
+hydrodynamics
+hydrostatics
+inertia
+injection molding
+internal combustion engine
+kinematics
+kinetic energy
+lathe
+lever
+linkage
+machine design
+machine element
+machine tool
+manufacturing
+material science
+mechanical advantage
+mechanical efficiency
+mechanical power
+mechanical seal
+mechanism
+modulus of elasticity
+moment
+moment of inertia
+pascal’s law
+pendulum
+pneumatics
+potential energy
+pressure
+pulley
+pump
+ratchet
+robotics
+rolling resistance
+screw
+shear stress
+simple machine
+solid mechanics
+spring
+statics
+strain
+stress
+stress concentration
+thermodynamics
+tolerance
+torque
+tribology
+turbine
+valve
+vibration
