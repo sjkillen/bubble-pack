@@ -2,6 +2,10 @@ extends Node2D
 
 var word: String
 
+@export var SyllableCounter: Node
+
+
+
 
 func _on_go_pressed() -> void:
 	word = $WordInput.text
@@ -14,3 +18,4 @@ func _on_go_pressed() -> void:
 	$PartOfSpeech.text = data["definitions"][0]["partOfSpeech"]
 	$Definition.text = data["definitions"][0]["meaning"]
 	$Syllables.text = str($SyllableCounter.count(word))
+	$ColorDisplay.color = $Colorizer.colorize(word)

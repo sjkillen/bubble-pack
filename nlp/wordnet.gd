@@ -1,12 +1,45 @@
 extends Node
 
+var LETTERS = [
+	"a",
+	"b",
+	"c",
+	"d",
+	"e",
+	"f",
+	"g",
+	"h",
+	"i",
+	"j",
+	"k",
+	"l",
+	"m",
+	"n",
+	"o",
+	"p",
+	"q",
+	"r",
+	"s",
+	"t",
+	"u",
+	"v",
+	"w",
+	"x",
+	"y",
+	"z",
+]
 
 var strip = RegEx.new()
 
 var DICT_ROOT = "res://nlp/wordnet-dictionary/src/data/"
 
+var DICT = {}
+
 func _ready() -> void:
 	strip.compile(r"^\s+|\s+$")
+	
+	for l in LETTERS:
+		DICT[l] = load_letter(l)
 
 
 func clean(w:String):
@@ -19,7 +52,7 @@ func search(w:String):
 	if w.length() < 1:
 		return
 	
-	var bank = load_letter(w[0])
+	var bank = DICT[w[0]]
 	if not bank:
 		return
 	

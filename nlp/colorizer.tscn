@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://pu70waxgevwu"]
+
+[ext_resource type="Script" path="res://nlp/colorizer.gd" id="1_ihj8h"]
+
+[node name="Colorizer" type="Node" node_paths=PackedStringArray("SyllableCounter")]
+script = ExtResource("1_ihj8h")
+SyllableCounter = NodePath("")

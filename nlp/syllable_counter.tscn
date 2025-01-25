@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://17undpxhl3tg"]
+
+[ext_resource type="Script" path="res://nlp/syllable_counter.gd" id="1_j2817"]
+
+[node name="SyllableCounter" type="Node"]
+script = ExtResource("1_j2817")
