@@ -1,9 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://ds6a0icfwpx67"]
 
 [ext_resource type="PackedScene" uid="uid://bx6uhv58622fd" path="res://nlp/poem.tscn" id="1_eca3x"]
+[ext_resource type="Script" path="res://nlp/poetry_interface.gd" id="1_n4bmn"]
 
 [node name="PoetryInterface" type="Node2D"]
 position = Vector2(128, 88)
+script = ExtResource("1_n4bmn")
 
 [node name="Arrow2" type="Polygon2D" parent="."]
 position = Vector2(923, 48)
