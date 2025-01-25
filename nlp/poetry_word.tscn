@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj8t7iimjnlq8"]
+
+[ext_resource type="Script" path="res://nlp/poetry_word.gd" id="1_satp5"]
+
+[node name="PoetryWord" type="TextEdit"]
+offset_right = 274.0
+offset_bottom = 57.0
+script = ExtResource("1_satp5")
+
+[node name="BadMarker" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 14.0
+offset_right = 266.0
+offset_bottom = 41.0
+color = Color(0.339735, 3.42932e-07, 7.21961e-08, 1)
+
+[node name="Label" type="Label" parent="BadMarker"]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 43.0
+offset_bottom = 23.0
+text = "(??)"
+
+[node name="GoodMarker" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 238.0
+offset_top = 14.0
+offset_right = 266.0
+offset_bottom = 41.0
+color = Color(0, 0.329689, 0, 1)
+
+[node name="Label" type="Label" parent="GoodMarker"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 44.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 24
+text = "☑"
+
+[connection signal="text_changed" from="." to="." method="_on_text_changed"]

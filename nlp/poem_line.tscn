@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwsutb5jxhlkg"]
+
+[ext_resource type="PackedScene" uid="uid://dj8t7iimjnlq8" path="res://nlp/poetry_word.tscn" id="1_ft71p"]
+[ext_resource type="Script" path="res://nlp/poem_line.gd" id="1_vl32t"]
+[ext_resource type="PackedScene" uid="uid://pu70waxgevwu" path="res://nlp/colorizer.tscn" id="3_0apxj"]
+[ext_resource type="PackedScene" uid="uid://17undpxhl3tg" path="res://nlp/syllable_counter.tscn" id="4_hgbq2"]
+
+[node name="PoemLine" type="Node2D"]
+script = ExtResource("1_vl32t")
+
+[node name="Delay" parent="." instance=ExtResource("1_ft71p")]
+
+[node name="Size" parent="." instance=ExtResource("1_ft71p")]
+offset_left = 288.0
+offset_right = 562.0
+
+[node name="Colour" parent="." instance=ExtResource("1_ft71p")]
+offset_left = 576.0
+offset_right = 850.0
+
+[node name="Colorizer" parent="." node_paths=PackedStringArray("SyllableCounter") instance=ExtResource("3_0apxj")]
+SyllableCounter = NodePath("../SyllableCounter")
+
+[node name="SyllableCounter" parent="." instance=ExtResource("4_hgbq2")]
