@@ -16,7 +16,6 @@ func _ready() -> void:
 
 func process_row(r):
 	var data = $Wordnet.search(r)
-	print(r)
 	return data
 
 func process_data():

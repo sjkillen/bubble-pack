@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var CADENCE = 3000
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ball_center = $Ball.position
@@ -26,8 +28,10 @@ func react():
 	$Ball.modulate = data["color"]
 	var t = Time.get_ticks_msec()
 	var vis = true
-	if data["delay"] > 0:
-		vis = t % data["delay"] > (data["delay"] / 2)
+	var delay = int(data["delay"] * CADENCE)
+	
+	if delay > 0:
+		vis = t % delay > (delay / 2)
 	
 	var nsize = Vector2(data["size"], data["size"])
 	$Ball.size = nsize

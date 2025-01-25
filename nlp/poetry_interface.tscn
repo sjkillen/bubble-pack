@@ -57,7 +57,7 @@ position = Vector2(-20, -16)
 scale = Vector2(0.7, 0.7)
 text_1 = Array[String](["rake", "sickle", "debugger"])
 text_2 = Array[String](["bug", "mantis", "error"])
-text_3 = Array[String](["sleepy", "hibernation", "time"])
+text_3 = Array[String](["sleeper", "hibernation", "time"])
 text_4 = Array[String](["morning", "more", "mourning"])
 
 [node name="C" type="ColorRect" parent="."]

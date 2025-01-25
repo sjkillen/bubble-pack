@@ -1,7 +1,5 @@
 extends Node2D
 
-@export var CADENCE = 500
-
 
 @export var is_valid = false
 
@@ -25,10 +23,24 @@ func validate() -> bool:
 func parameterize():
 	if not validate():
 		return
+	
+	var syl = $SyllableCounter.count($Delay.text)
+	if syl == 0:
+		syl = 1
+		
+	print(syl, syl/7)
+	
+	var delay = 1.0 - (1.0/float(syl))
+	
+	if delay > 1:
+		delay = 1.0
+	if delay < 0.1:
+		delay = 0.1
+	
 	return {
 		"color": $Colorizer.colorize($Colour.text),
 		"size": $Size.text.length() * 20,
-		"delay": $SyllableCounter.count($Delay.text) * CADENCE
+		"delay": delay #$SyllableCounter.count($Delay.text) * CADENCE
 	}
 
 func load_data(data: Array):
