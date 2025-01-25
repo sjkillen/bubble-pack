@@ -41,3 +41,5 @@ func load_data(data: Array):
 	$PoemLine.load_data(data)
 	
 	
+func parameterize():
+	return $PoemLine.parameterize()
