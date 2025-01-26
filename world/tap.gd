@@ -5,7 +5,7 @@ class_name Tap
 @export var fuel_color: Color
 @export var create_color: Color
 var held_ball: Ball = null
-var fuel_amount: float = .5 # 0 to 1
+var fuel_amount: float = .75 # 0 to 1
 
 enum State {
 	Empty,
@@ -17,10 +17,15 @@ enum State {
 
 @onready var game := Util.find_game_parent(self)
 
+var shader_fuel_amount: float
+var shader_fuel_tween: Tween = null
+var shader_create_color: Color
+var shader_create_color_tween: Tween = null
+
 func _process(_delta: float) -> void:
-	$Tap.set_instance_shader_parameter("fuel_amount", fuel_amount)
+	$Tap.set_instance_shader_parameter("fuel_amount", shader_fuel_amount)
 	$Tap.set_instance_shader_parameter("fuel_color", fuel_color)
-	$Tap.set_instance_shader_parameter("create_color", create_color)
+	$Tap.set_instance_shader_parameter("create_color", shader_create_color)
 
 var delay_ticks := 0
 var current_line: Variant = null
@@ -65,6 +70,12 @@ func command_create_ball():
 
 func command_set_color(color: Color):
 	create_color = color
+	if shader_create_color_tween != null:
+		shader_create_color_tween.kill()
+	shader_create_color_tween = create_tween()
+	shader_create_color_tween.tween_property(self, "shader_create_color", create_color, game.time_between_ticks)
+	await shader_create_color_tween.finished
+	shader_create_color_tween = null
 
 func command_stop_growing():
 	if state != State.Growing:
@@ -78,5 +89,24 @@ func command_release_ball():
 		return
 	state = State.Empty
 	held_ball.release_ball()
+	var fuel_used := game.tap_fuel_radius_ratio * held_ball.radius
+	fuel_amount = clampf(fuel_amount-fuel_used, 0.0, 1.0)
+	if shader_fuel_tween != null:
+		shader_fuel_tween.kill()
+	shader_fuel_tween = create_tween()
+	shader_fuel_tween.tween_property(self, "shader_fuel_amount", fuel_amount, game.time_between_ticks)
 	held_ball = null
+	await shader_fuel_tween.finished
+	shader_fuel_tween = null
+
+func refuel(add_amount: float):
+	fuel_amount = clampf(fuel_amount+add_amount, 0.0, 1.0)
+	if shader_fuel_tween != null:
+		shader_fuel_tween.kill()
+	shader_fuel_tween = create_tween()
+	shader_fuel_tween.tween_property(self, "shader_fuel_amount", fuel_amount, game.time_between_ticks)
+	await shader_fuel_tween.finished
 	
+
+func refuel_pos() -> Vector3:
+	return $RefuelSpot.global_position

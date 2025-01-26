@@ -5,18 +5,3 @@
 
 [node name="walls" instance=ExtResource("1_5sysu")]
 script = ExtResource("2_gksbr")
-
-[node name="Tap" parent="." index="1"]
-fuel_color = Color(0, 0, 0, 1)
-create_color = Color(0, 0, 0, 1)
-state = 0
-
-[node name="Tap_001" parent="." index="2"]
-fuel_color = Color(0, 0, 0, 1)
-create_color = Color(0, 0, 0, 1)
-state = 0
-
-[node name="Tap_002" parent="." index="3"]
-fuel_color = Color(0, 0, 0, 1)
-create_color = Color(0, 0, 0, 1)
-state = 0

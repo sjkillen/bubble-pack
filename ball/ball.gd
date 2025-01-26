@@ -12,10 +12,33 @@ var growth_tween: Tween = null
 
 var ball_released := false
 
+var after_decay_tween: Tween = null
+func harden():
+	if after_decay_tween != null:
+		after_decay_tween.kill()
+	after_decay_tween = create_tween()
+	after_decay_tween.tween_property(self, "color", Color(0.0, 0.0, 0.0), game.time_between_ticks)
+	await after_decay_tween.finished
+	after_decay_tween = null
+	
+func refuel_float_to(pos: Vector3):
+	$CollisionShape3D.queue_free()
+	if after_decay_tween != null:
+		after_decay_tween.kill()
+	after_decay_tween = create_tween()
+	after_decay_tween.set_parallel()
+	after_decay_tween.tween_property(self, "global_position", pos, game.time_between_ticks)
+	after_decay_tween.tween_property(self, "radius", 0.01, game.time_between_ticks)
+	await after_decay_tween.finished
+	after_decay_tween = null
+	queue_free()
+
 func _process(_delta: float) -> void:
 	$MeshInstance3D.mesh.radius = radius
 	$MeshInstance3D.mesh.height = radius * 2.0
-	$CollisionShape3D.shape.radius = radius
+	var collision_shape: CollisionShape3D = get_node_or_null("CollisionShape3D")
+	if collision_shape != null:
+		collision_shape.shape.radius = radius
 	$MeshInstance3D.set_instance_shader_parameter("color", color)
 	var decay_factor = 1.0
 	if decay_timer != null:
@@ -39,6 +62,7 @@ func release_ball():
 	ball_released = true
 	decay_timer = Timer.new()
 	add_child(decay_timer)
+	decay_timer.one_shot = true
 	decay_timer.start(game.ball_radius_decay_ratio * radius)
 	await decay_timer.timeout
 	game.ball_decayed(self)

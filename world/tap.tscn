@@ -8,3 +8,6 @@ script = ExtResource("2_hbdnj")
 
 [node name="SpawnMarker" type="Marker3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13024, 0.546974, 0)
+
+[node name="RefuelSpot" type="Marker3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16982, 0.0859437, 0)

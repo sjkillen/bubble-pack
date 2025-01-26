@@ -2,20 +2,29 @@ extends Control
 class_name Game
 
 @export var ball_oob_time := 3.0 # Seconds a ball can stay out of bounds for 
-@export var ball_radius_decay_ratio = 100.0
-@export var time_between_ticks = 1.0
-@export var starting_radius = 0.05
-@export var max_delay_ticks = 10
-@export var max_target_size = 0.5
+@export var ball_radius_decay_ratio := 22.5
+@export var tap_fuel_radius_ratio := .5
+@export var tap_refuel_bonus := 1.5
+@export var time_between_ticks := 1.0
+@export var starting_radius := 0.05
+@export var max_delay_ticks := 10
+@export var max_target_size := 0.5
 @export var size_curve: Curve
-@export var flick_power = 5.0
+@export var flick_power := 5.0
+@export var fuel_purity_tolerance := 0.8
+
 
 @export var goal_color: Color
 @export var goal_fill: float = 0.75
 
 var is_running = false
 
-@onready var taps = %Game.get_taps()
+@onready var taps: Array[Tap] = %Game.get_taps()
+
+func _ready() -> void:
+	taps[0].fuel_color = Color(1.0, 0.0, 0.0)
+	taps[1].fuel_color = Color(0.0, 1.0, 0.0)
+	taps[2].fuel_color = Color(0.0, 0.0, 1.0)
 
 func emit_tick():
 	taps[0].tick(%PoetryInterface.PoemA)
@@ -27,7 +36,19 @@ func create_ball() -> Ball:
 	return %Game.create_ball()
 
 func ball_decayed(ball: Ball):
-	ball.queue_free()
+	var ball_color := Util.color_to_vec3(ball.color)
+	for tap in taps:
+		var tap_color := Util.color_to_vec3(tap.fuel_color)
+		var d := ball_color.distance_to(tap_color)
+		if d <= fuel_purity_tolerance:
+			# Ball ref may be invalidated after wait below, store radius now
+			var radius := ball.radius
+			await ball.refuel_float_to(tap.refuel_pos())
+			tap.refuel(radius * tap_fuel_radius_ratio * tap_refuel_bonus)
+			return
+	ball.harden()
+	
+
 
 func pause_game():
 	if not is_running:

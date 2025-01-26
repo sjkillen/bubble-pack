@@ -31,7 +31,7 @@ unique_name_in_owner = true
 script = ExtResource("4_dxybr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LoseZone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.14853, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.984, 0)
 shape = SubResource("BoxShape3D_5q0a3")
 
 [connection signal="body_entered" from="LoseZone" to="LoseZone" method="_on_body_entered"]

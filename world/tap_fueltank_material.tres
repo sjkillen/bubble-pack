@@ -5,3 +5,4 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_recku")
+shader_parameter/no_fuel_color = Color(0.830335, 0.830335, 0.830335, 1)
