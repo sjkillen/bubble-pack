@@ -38,10 +38,6 @@ func react():
 	var nsize = Vector2(nscale, nscale)
 	$Ball.size = nsize
 	$Ball.position = ball_center - nsize / 7
-	
-	if vis != old_vis:
-		$Ball.visible = vis
-		old_vis = vis
 		
 func load_data(data: Array):
 	$PoemLine.load_data(data)
@@ -49,3 +45,9 @@ func load_data(data: Array):
 	
 func parameterize():
 	return $PoemLine.parameterize()
+
+func start_turn():
+	$Ball.visible = true
+
+func end_turn():
+	$Ball.visible = false

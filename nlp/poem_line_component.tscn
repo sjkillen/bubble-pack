@@ -17,6 +17,7 @@ script = ExtResource("1_w20jd")
 position = Vector2(133, 48)
 
 [node name="Ball" type="Panel" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
