@@ -28,12 +28,12 @@ polygon = PackedVector2Array(653, 166, 618.812, 166, 574, 166, 572, 189, 523, 15
 [node name="A" type="ColorRect" parent="."]
 offset_left = -8.0
 offset_right = 672.0
-offset_bottom = 290.0
+offset_bottom = 310.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Poem" parent="A" instance=ExtResource("1_eca3x")]
-position = Vector2(-18, -18)
+position = Vector2(-18, -15)
 scale = Vector2(0.7, 0.7)
 text_1 = Array[String](["hi", "good", "friend"])
 text_2 = Array[String](["autumn", "reflection", "flesh"])
@@ -44,12 +44,12 @@ text_4 = Array[String](["god", "over", "tree"])
 offset_left = 717.0
 offset_top = 142.0
 offset_right = 1397.0
-offset_bottom = 432.0
+offset_bottom = 452.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Poem" parent="B" instance=ExtResource("1_eca3x")]
-position = Vector2(-20, -16)
+position = Vector2(-20, -14)
 scale = Vector2(0.7, 0.7)
 text_1 = Array[String](["rake", "sickle", "debugger"])
 text_2 = Array[String](["bug", "mantis", "error"])
@@ -60,12 +60,12 @@ text_4 = Array[String](["morning", "more", "mourning"])
 offset_left = -40.0
 offset_top = 374.0
 offset_right = 640.0
-offset_bottom = 664.0
+offset_bottom = 684.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Poem" parent="C" instance=ExtResource("1_eca3x")]
-position = Vector2(-22, -20)
+position = Vector2(-22, -14)
 scale = Vector2(0.7, 0.7)
 text_1 = Array[String](["reverberate", "incinerate", "incarcerate"])
 text_2 = Array[String](["inclement", "incarnate", "imp"])
