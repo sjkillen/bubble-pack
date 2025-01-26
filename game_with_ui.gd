@@ -139,4 +139,4 @@ func _on_button_2_pressed() -> void:
 
 func _on_ad_hoc_refuel_pressed() -> void:
 	for tap in taps:
-		tap.refuel(1.0)
+		tap.refuel(0.1)

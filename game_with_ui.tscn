@@ -76,31 +76,59 @@ grow_vertical = 2
 
 [node name="GoalViz" parent="FullscreenBalls" instance=ExtResource("3_hn5tp")]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.454902)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.998
-anchor_top = 0.5
-anchor_right = 0.998
-anchor_bottom = 0.5
-offset_left = -517.696
-offset_top = -167.0
-offset_right = -57.696
-offset_bottom = 221.0
+anchor_top = 0.891
+anchor_bottom = 0.893
+offset_left = -363.696
+offset_top = -99.368
+offset_right = -60.0
+offset_bottom = 125.336
+
+[node name="Label" parent="FullscreenBalls/GoalViz" index="0"]
+offset_left = 6.5
+offset_top = -123.0
+offset_right = -25.5
+offset_bottom = -27.0
+theme_override_font_sizes/font_size = 25
+
+[node name="score" parent="FullscreenBalls/GoalViz" index="1"]
+offset_left = 141.0
+offset_top = -96.0
+offset_right = -164.0
+offset_bottom = 0.0
 
 [node name="HSplitContainer" parent="FullscreenBalls/GoalViz" index="2"]
 split_offset = 210
 
+[node name="R_gauge" parent="FullscreenBalls/GoalViz/HSplitContainer/HBoxContainer" index="0"]
+color = Color(0.417748, 0, 0.10182, 1)
+
 [node name="TextureRect" parent="FullscreenBalls/GoalViz/HSplitContainer/HBoxContainer/R_gauge/MarginContainer" index="0"]
 material = SubResource("ShaderMaterial_stuqm")
+
+[node name="G_gauge" parent="FullscreenBalls/GoalViz/HSplitContainer/HBoxContainer" index="1"]
+color = Color(7.83328e-06, 0.242503, 0.0281582, 1)
 
 [node name="TextureRect" parent="FullscreenBalls/GoalViz/HSplitContainer/HBoxContainer/G_gauge/MarginContainer" index="0"]
 material = SubResource("ShaderMaterial_lh5lf")
 
+[node name="B_gauge" parent="FullscreenBalls/GoalViz/HSplitContainer/HBoxContainer" index="2"]
+color = Color(0.328947, 0.000915254, 0.914295, 1)
+
 [node name="TextureRect" parent="FullscreenBalls/GoalViz/HSplitContainer/HBoxContainer/B_gauge/MarginContainer" index="0"]
 material = SubResource("ShaderMaterial_8njai")
 
+[node name="Total_gauge" parent="FullscreenBalls/GoalViz/HSplitContainer" index="1"]
+color = Color(0.41598, 0.41598, 0.41598, 1)
+
 [node name="TextureRect" parent="FullscreenBalls/GoalViz/HSplitContainer/Total_gauge/MarginContainer" index="0"]
 material = SubResource("ShaderMaterial_nhuoy")
+
+[node name="Label" parent="FullscreenBalls/GoalViz/HSplitContainer/Total_gauge/MarginContainer/TextureRect" index="0"]
+theme_override_font_sizes/font_size = 25
 
 [node name="EditorView" type="Control" parent="."]
 layout_mode = 1
@@ -147,13 +175,13 @@ grow_vertical = 0
 
 [node name="VBoxContainer" parent="Playback" index="0"]
 offset_left = 42.0
-offset_top = -97.0
+offset_top = -128.0
 offset_right = 223.0
-offset_bottom = 66.0
+offset_bottom = 35.0
 
 [node name="AdHocRefuel" type="Button" parent="Playback/VBoxContainer" index="2"]
 layout_mode = 2
-text = "Refuel"
+text = "Manually Refuel Wands"
 
 [node name="TickTimer" type="Timer" parent="."]
 

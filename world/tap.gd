@@ -3,9 +3,9 @@ class_name Tap
 
 @export var neighbour: Tap
 @export var fuel_color: Color
-@export var create_color: Color
+@export var create_color: Color = Color.WHITE
 var held_ball: Ball = null
-var fuel_amount: float = 1.0 # 0 to 1
+var fuel_amount: float = 0.0 # 0 to 1
 
 enum State {
 	Stalled,
