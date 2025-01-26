@@ -116,16 +116,12 @@ func switch_to_editor_view():
 	$Playback/VBoxContainer/Button2.text = "View Machine"
 	$EditorView.visible = true
 	$FullscreenBalls.visible = false
-	$FullscreenBalls/SubViewportContainer3/SubViewport/Camera3D.current = false
-	$EditorView/SubViewportContainer/SubViewport/Camera3D.current = true
 	editor_view = true
 
 func switch_to_machine_view():
 	$Playback/VBoxContainer/Button2.text = "View Editor"
 	$EditorView.visible = false
 	$FullscreenBalls.visible = true
-	$EditorView/SubViewportContainer/SubViewport/Camera3D.current = false
-	$FullscreenBalls/SubViewportContainer3/SubViewport/Camera3D.current = true
 	editor_view = false
 	
 
