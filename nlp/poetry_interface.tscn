@@ -78,8 +78,8 @@ metadata/_edit_use_anchors_ = true
 [node name="Poem" parent="A" instance=ExtResource("1_eca3x")]
 position = Vector2(-18, -15)
 scale = Vector2(0.7, 0.7)
-text_1 = Array[String](["hi", "good", "friend"])
-text_2 = Array[String](["autumn", "reflection", "flesh"])
+text_1 = Array[String](["my", "good", "friend"])
+text_2 = Array[String](["is", "reflection", "flesh"])
 text_3 = Array[String](["wearing", "out", "shoe"])
 text_4 = Array[String](["god", "over", "tree"])
 
