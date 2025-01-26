@@ -5,6 +5,7 @@
 
 [node name="tap" instance=ExtResource("1_j0lni")]
 script = ExtResource("2_hbdnj")
+create_color = Color(0.556396, 0.2981, 0.0432224, 1)
 
 [node name="SpawnMarker" type="Marker3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13024, 0.546974, 0)

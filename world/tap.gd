@@ -20,7 +20,7 @@ enum State {
 
 @onready var shader_fuel_amount: float = fuel_amount
 var shader_fuel_tween: Tween = null
-var shader_create_color: Color
+@onready var shader_create_color: Color = create_color
 var shader_create_color_tween: Tween = null
 
 func _process(_delta: float) -> void:
@@ -60,6 +60,7 @@ func tick(poem: Poem):
 func consume_fuel(radius: float) -> bool:
 	var fuel_used := game.tap_fuel_radius_ratio * radius
 	if fuel_amount < fuel_used:
+		$AnimationPlayer.play("BakedNoFuel")
 		return false
 	fuel_amount = clampf(fuel_amount-fuel_used, 0.0, 1.0)
 	if shader_fuel_tween != null:

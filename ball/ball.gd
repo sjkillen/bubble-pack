@@ -20,7 +20,10 @@ func harden():
 	after_decay_tween.tween_property(self, "color", Color(0.0, 0.0, 0.0), game.time_between_ticks)
 	await after_decay_tween.finished
 	after_decay_tween = null
-	await get_tree().create_timer(game.hardened_ball_decay_time)
+	await get_tree().create_timer(game.hardened_ball_decay_time).timeout
+	var t := create_tween()
+	t.tween_property(self, "radius", 0.0, game.time_between_ticks)
+	await t.finished
 	queue_free()
 	
 func refuel_float_to(pos: Vector3):

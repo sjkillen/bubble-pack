@@ -2,25 +2,25 @@ extends Control
 class_name Game
 
 @export var ball_oob_time := 5.0 # Seconds a ball can stay out of bounds for 
-@export var ball_radius_decay_ratio := 22.5
+@export var ball_radius_decay_ratio := 250.
 @export var tap_fuel_radius_ratio := .1
 @export var tap_refuel_bonus := 1.5
-@export var time_between_ticks := 1.0
+@export var time_between_ticks := 0.5
 @export var starting_radius := 0.05
-@export var max_delay_ticks := 10
+@export var max_delay_ticks := 3.0
 @export var max_target_size := 0.2
 @export var size_curve: Curve
 @export var flick_power := 5.0
 @export var fuel_purity_tolerance := 0.8
-@export var goal_bonus := 2.0
+@export var goal_bonus := 5.0
 @export var hardened_ball_decay_time := 30.0
 
 @export var goal_color: Color
-@export var goal_fill: float = .95
+@export var goal_fill: float = .95 * 20.0
 var current_color: Color
 var current_fill: float = .95
 
-var bonus_max_distance: float = Vector4.ONE.distance_to(Vector4.ZERO)
+@onready var bonus_max_distance: float = Vector4(1.0, 1.0, 1.0, goal_fill).distance_to(Vector4.ZERO)
 
 var is_running = false
 
@@ -30,9 +30,10 @@ func _process(_delta: float) -> void:
 	current_color = get_aggregate_color()
 	current_fill = get_aggregate_fill()
 	tap_refuel_bonus = max(0.0, ((bonus_max_distance - goal_distance()) / bonus_max_distance) * goal_bonus)
+	print("dist: ", goal_distance(), " max dist: ", bonus_max_distance)
 	
 	%GoalViz.set_color(goal_color, current_color)
-	%GoalViz.set_total(goal_fill, current_fill)
+	%GoalViz.set_total(goal_fill / 20.0, current_fill / 20.0)
 	%GoalViz.set_bonus(tap_refuel_bonus)
 	
 
@@ -61,7 +62,7 @@ func ball_decayed(ball: Ball):
 			# Ball ref may be invalidated after wait below, store radius now
 			var radius := ball.radius
 			ball.refuel_float_to(tap.refuel_pos())
-			tap.refuel(radius * tap_fuel_radius_ratio * tap_refuel_bonus)
+			tap.refuel(radius * tap_fuel_radius_ratio + (tap_refuel_bonus / 4.0))
 			return
 	ball.harden()
 	
