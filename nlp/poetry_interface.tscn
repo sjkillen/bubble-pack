@@ -7,11 +7,68 @@
 position = Vector2(128, 88)
 script = ExtResource("1_n4bmn")
 
+[node name="Line1" type="Line2D" parent="."]
+position = Vector2(11, 51)
+points = PackedVector2Array(33, 396, 155, 23)
+width = 20.0
+default_color = Color(0, 0.0705882, 0.25098, 1)
+
+[node name="Mark1" type="ColorRect" parent="."]
+offset_left = 144.0
+offset_top = 53.0
+offset_right = 184.0
+offset_bottom = 93.0
+color = Color(0, 0.0705882, 0.25098, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Mark1"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 30.0
+offset_bottom = 30.0
+
+[node name="Line2" type="Line2D" parent="."]
+position = Vector2(1147, 51)
+points = PackedVector2Array(33, 396, -76, -6)
+width = 20.0
+default_color = Color(0, 0.0705882, 0.25098, 1)
+
+[node name="Mark2" type="ColorRect" parent="."]
+offset_left = 1056.0
+offset_top = 37.0
+offset_right = 1096.0
+offset_bottom = 77.0
+color = Color(0, 0.0705882, 0.25098, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Mark2"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 30.0
+offset_bottom = 30.0
+
+[node name="Line3" type="Line2D" parent="."]
+position = Vector2(675, -109)
+points = PackedVector2Array(-37, 259, -40, 86)
+width = 20.0
+default_color = Color(0, 0.0705882, 0.25098, 1)
+
+[node name="Mark3" type="ColorRect" parent="."]
+offset_left = 615.0
+offset_top = -27.0
+offset_right = 655.0
+offset_bottom = 13.0
+color = Color(0, 0.0705882, 0.25098, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Mark3"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 30.0
+offset_bottom = 30.0
+
 [node name="A" type="ColorRect" parent="."]
-offset_left = 595.0
-offset_top = -85.0
-offset_right = 1275.0
-offset_bottom = 225.0
+offset_left = 299.0
+offset_top = 67.0
+offset_right = 979.0
+offset_bottom = 377.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
@@ -24,10 +81,10 @@ text_3 = Array[String](["wearing", "out", "shoe"])
 text_4 = Array[String](["god", "over", "tree"])
 
 [node name="B" type="ColorRect" parent="."]
-offset_left = 1306.0
-offset_top = -82.0
-offset_right = 1986.0
-offset_bottom = 228.0
+offset_left = 630.0
+offset_top = 398.0
+offset_right = 1310.0
+offset_bottom = 708.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
@@ -40,10 +97,10 @@ text_3 = Array[String](["sleeper", "hibernation", "time"])
 text_4 = Array[String](["morning", "more", "mourning"])
 
 [node name="C" type="ColorRect" parent="."]
-offset_left = -120.0
-offset_top = -82.0
-offset_right = 560.0
-offset_bottom = 228.0
+offset_left = -72.0
+offset_top = 398.0
+offset_right = 608.0
+offset_bottom = 708.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
