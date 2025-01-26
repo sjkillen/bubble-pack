@@ -17,18 +17,34 @@ enum State {
 
 @onready var game := Util.find_game_parent(self)
 
-func _ready() -> void:
-	game.tick.connect(tick)
-	
 func _process(_delta: float) -> void:
 	$Tap.set_instance_shader_parameter("fuel_amount", fuel_amount)
 	$Tap.set_instance_shader_parameter("fuel_color", fuel_color)
 	$Tap.set_instance_shader_parameter("create_color", create_color)
 
-func tick():
-	# Todo execute poetry
-	if state == State.Growing:
-		held_ball.grow_ball(game.growth_rate)
+var delay_ticks := 0
+var current_line: Variant = null
+var target_size := 0.0
+
+func tick(poem: Poem):
+	if state == State.Holding:
+		delay_ticks -= 1
+		if delay_ticks <= 0:
+			command_release_ball()
+		return
+	if state == State.Empty:
+		current_line = poem.next()
+		var parameters = current_line.parameterize()
+		delay_ticks = int(parameters["delay"] * game.max_delay_ticks)
+		target_size = parameters["size"] * game.max_target_size
+		command_set_color(Color.from_string(parameters["color"], Color.WHITE))
+		command_create_ball()
+		held_ball.grow_ball(target_size)
+	else:
+		command_stop_growing()
+	
+	
+	
 
 func create_ball():
 	if held_ball != null:

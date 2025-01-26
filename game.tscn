@@ -22,6 +22,7 @@ environment = SubResource("Environment_yy0ew")
 transform = Transform3D(0.832448, -0.25823, 0.490253, 0, 0.884768, 0.466031, -0.554104, -0.387947, 0.736523, 1.9401, 2.96677, 3.34555)
 
 [node name="walls" parent="." instance=ExtResource("1_e04yj")]
+unique_name_in_owner = true
 
 [node name="balls" type="Node3D" parent="."]
 unique_name_in_owner = true

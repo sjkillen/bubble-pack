@@ -28,8 +28,10 @@ func grow_ball(amount: float):
 		radius = target_radius
 		growth_tween.kill()
 	growth_tween = create_tween()
-	target_radius = target_radius + amount
+	target_radius = amount
 	growth_tween.tween_property(self, "radius", target_radius, game.time_between_ticks)
+	await growth_tween.finished
+	growth_tween = null
 	
 
 func release_ball():

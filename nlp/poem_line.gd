@@ -28,8 +28,6 @@ func parameterize():
 	if syl == 0:
 		syl = 1
 		
-	print(syl, syl/7)
-	
 	var delay = 1.0 - (1.0/float(syl))
 	
 	if delay > 1:
