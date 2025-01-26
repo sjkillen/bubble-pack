@@ -34,6 +34,8 @@ func refuel_float_to(pos: Vector3):
 	queue_free()
 
 func _process(_delta: float) -> void:
+	if oob_timer and freeze:
+		oob_timer.wait_time = game.ball_oob_time
 	$MeshInstance3D.mesh.radius = radius
 	$MeshInstance3D.mesh.height = radius * 2.0
 	var collision_shape: CollisionShape3D = get_node_or_null("CollisionShape3D")

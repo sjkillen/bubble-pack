@@ -25,6 +25,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="LoseZone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.105687, 0)
 script = ExtResource("4_dxybr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LoseZone"]

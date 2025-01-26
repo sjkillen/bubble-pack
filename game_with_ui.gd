@@ -1,7 +1,7 @@
 extends Control
 class_name Game
 
-@export var ball_oob_time := 3.0 # Seconds a ball can stay out of bounds for 
+@export var ball_oob_time := 5.0 # Seconds a ball can stay out of bounds for 
 @export var ball_radius_decay_ratio := 22.5
 @export var tap_fuel_radius_ratio := .1
 @export var tap_refuel_bonus := 1.5
