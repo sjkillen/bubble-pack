@@ -2,11 +2,13 @@ extends Control
 class_name Game
 
 @export var ball_oob_time := 3.0 # Seconds a ball can stay out of bounds for 
-@export var ball_radius_decay_ratio = 10.0
-@export var time_between_ticks = 5.0
+@export var ball_radius_decay_ratio = 100.0
+@export var time_between_ticks = 1.0
 @export var starting_radius = 0.05
 @export var max_delay_ticks = 10
-@export var max_target_size = 0.1
+@export var max_target_size = 0.5
+@export var size_curve: Curve
+@export var flick_power = 5.0
 
 @export var goal_color: Color
 @export var goal_fill: float = 0.75

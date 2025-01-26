@@ -36,13 +36,13 @@ func tick(poem: Poem):
 		current_line = poem.next()
 		var parameters = current_line.parameterize()
 		delay_ticks = int(parameters["delay"] * game.max_delay_ticks)
-		target_size = parameters["size"] * game.max_target_size
+		var size_scale := game.size_curve.sample(parameters["size"])
+		target_size = size_scale * game.max_target_size
 		command_set_color(Color.from_string(parameters["color"], Color.WHITE))
 		command_create_ball()
 		held_ball.grow_ball(target_size)
 	else:
 		command_stop_growing()
-	
 	
 	
 

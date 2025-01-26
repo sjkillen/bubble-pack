@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 	if decay_timer != null:
 		decay_factor = decay_timer.time_left / (game.ball_radius_decay_ratio * radius)
 	$MeshInstance3D.set_instance_shader_parameter("decay_factor", decay_factor)
-	gravity_scale = float(ball_released)
+	freeze = not ball_released
 
 func grow_ball(amount: float):
 	if growth_tween != null:
@@ -35,6 +35,7 @@ func grow_ball(amount: float):
 	
 
 func release_ball():
+	flick()
 	ball_released = true
 	decay_timer = Timer.new()
 	add_child(decay_timer)
@@ -42,6 +43,10 @@ func release_ball():
 	await decay_timer.timeout
 	game.ball_decayed(self)
 	
+func flick() -> void:
+	var p := -position
+	p.y = 0.0
+	apply_central_impulse(p.normalized() * game.flick_power)
 
 func make_oob_timer() -> Timer:
 	if not ball_released:
