@@ -1,6 +1,7 @@
 extends Node2D
 
-@export var CADENCE = 3000
+@export var CADENCE = 2000
+@export var BALL_SCALE = 200
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,7 +34,8 @@ func react():
 	if delay > 0:
 		vis = t % delay > (delay / 2)
 	
-	var nsize = Vector2(data["size"], data["size"])
+	var nscale = BALL_SCALE * data["size"]
+	var nsize = Vector2(nscale, nscale)
 	$Ball.size = nsize
 	$Ball.position = ball_center - nsize / 7
 	
