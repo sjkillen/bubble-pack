@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf35s7awrbmmr"]
+
+[ext_resource type="Script" path="res://story/title.gd" id="1_4ndjc"]
+[ext_resource type="Texture2D" uid="uid://drkvr5d31re73" path="res://story/title.png" id="1_mlcio"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ndjc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4266.0
+offset_bottom = 2743.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.992172, 0.898375, 0.662913, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 76.0
+offset_top = 58.0
+offset_right = 844.0
+offset_bottom = 490.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_mlcio")
+stretch_mode = 3
