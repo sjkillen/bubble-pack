@@ -4,6 +4,7 @@ extends Node2D
 @export var is_valid = false
 
 @export var SYL_PAR = 5.0
+@export var LEN_PAR = 11.0
 
 @onready var words = [$Delay, $Size, $Colour]
 
@@ -35,10 +36,16 @@ func parameterize():
 		delay = 1.0
 	if delay < 0.1:
 		delay = 0.1
+		
+	var s = float($Size.text.length()) / LEN_PAR
+	if s > 1.0:
+		s = 1.0
+	if s < 0.1:
+		s = 0.1
 	
 	return {
 		"color": $Colorizer.colorize($Colour.text),
-		"size": $Size.text.length() * 20,
+		"size": s,
 		"delay": delay #$SyllableCounter.count($Delay.text) * CADENCE
 	}
 
