@@ -34,6 +34,7 @@ func _process(_delta: float) -> void:
 	
 
 func _ready() -> void:
+	Music.next()
 	switch_to_editor_view()
 	taps[0].fuel_color = Color(1.0, 0.0, 0.0)
 	taps[1].fuel_color = Color(0.0, 1.0, 0.0)
