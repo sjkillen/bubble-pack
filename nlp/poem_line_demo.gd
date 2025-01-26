@@ -6,6 +6,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ball_center = $Ball.position
+	$Ball.visible = true
 
 
 
@@ -47,7 +48,10 @@ func parameterize():
 	return $PoemLine.parameterize()
 
 func start_turn():
-	$Ball.visible = true
+	#$Ball.visible = true
+	$AnimationPlayer.play("flash", -1, 1.3)
 
 func end_turn():
-	$Ball.visible = false
+	#$Ball.visible = false
+	$AnimationPlayer.play("RESET")
+	
