@@ -35,6 +35,8 @@ func tick(poem: Poem):
 	if state == State.Empty:
 		current_line = poem.next()
 		var parameters = current_line.parameterize()
+		if not parameters:
+			return
 		delay_ticks = int(parameters["delay"] * game.max_delay_ticks)
 		var size_scale := game.size_curve.sample(parameters["size"])
 		target_size = size_scale * game.max_target_size
