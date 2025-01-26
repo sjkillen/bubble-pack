@@ -10,6 +10,8 @@ var lines = []
 @export var text_3: Array[String]
 @export var text_4: Array[String]
 
+var last_line: Node  = null
+
 var initial_data: Array[Array] = []
 
 # Called when the node enters the scene tree for the first time.
@@ -29,7 +31,12 @@ func next():
 	if ix >= lines.size():
 		ix = 0
 	
+	if last_line:
+		last_line.end_turn()
+	
 	var ret = lines[ix]
+	ret.start_turn()
+	last_line = ret
 	
 	ix += 1
 	
