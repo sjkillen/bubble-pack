@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj8t7iimjnlq8"]
+[gd_scene load_steps=3 format=3 uid="uid://dj8t7iimjnlq8"]
 
 [ext_resource type="Script" path="res://nlp/poetry_word.gd" id="1_satp5"]
+[ext_resource type="Texture2D" uid="uid://bor7ug0fk2hmm" path="res://icons/check.png" id="2_oeft4"]
 
 [node name="PoetryWord" type="TextEdit"]
 offset_right = 274.0
@@ -23,7 +24,6 @@ offset_bottom = 23.0
 text = "(??)"
 
 [node name="GoodMarker" type="ColorRect" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 238.0
 offset_top = 14.0
@@ -31,13 +31,10 @@ offset_right = 266.0
 offset_bottom = 41.0
 color = Color(0, 0.329689, 0, 1)
 
-[node name="Label" type="Label" parent="GoodMarker"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = -1.0
-offset_right = 44.0
-offset_bottom = 41.0
-theme_override_font_sizes/font_size = 24
-text = "☑"
+[node name="Sprite2D" type="Sprite2D" parent="GoodMarker"]
+position = Vector2(2, 3)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_oeft4")
+centered = false
 
 [connection signal="text_changed" from="." to="." method="_on_text_changed"]
