@@ -13,13 +13,17 @@ class_name Game
 @export var flick_power := 5.0
 @export var fuel_purity_tolerance := 0.8
 
-
 @export var goal_color: Color
-@export var goal_fill: float = 0.75
+@export var goal_fill: float = .95
 
 var is_running = false
 
 @onready var taps: Array[Tap] = %Game.get_taps()
+
+func _process(_delta: float) -> void:
+	%GoalViz.set_color(goal_color, get_aggregate_color())
+	%GoalViz.set_total(goal_fill, get_aggregate_fill())
+	
 
 func _ready() -> void:
 	switch_to_editor_view()
@@ -65,7 +69,7 @@ func unpause_game():
 	$TickTimer.start(time_between_ticks)
 
 func get_aggregate_color() -> Color:
-	var balls: Array[Ball] = %Game.get_balls()
+	var balls: Array = %Game.get_balls()
 	var r := 0.0 
 	var g := 0.0
 	var b := 0.0
@@ -73,6 +77,7 @@ func get_aggregate_color() -> Color:
 		r += ball.color.r
 		g += ball.color.g
 		b += ball.color.b
+		
 	r /= balls.size()
 	g /= balls.size()
 	b /= balls.size()

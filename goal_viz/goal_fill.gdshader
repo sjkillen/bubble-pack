@@ -10,7 +10,7 @@ void fragment() {
 	if (abs(UV.y - (1.0-ideal_amount)) <= 0.01) {
 		COLOR.rgb = ideal_line_color;
 	}
-	else if (UV.y <= amount) {
+	else if (UV.y <= (1.0 - amount)) {
 		COLOR.rgb = empty_color;
 	} else {
 		COLOR.rgb = fill_color;
