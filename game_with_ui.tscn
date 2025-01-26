@@ -19,8 +19,9 @@ grow_vertical = 2
 script = ExtResource("1_ye2ji")
 size_curve = SubResource("Curve_xcwno")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
