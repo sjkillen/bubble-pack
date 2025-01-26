@@ -20,6 +20,8 @@ class_name Game
 var current_color: Color
 var current_fill: float = .95
 
+var bonus_max_distance: float = Vector4.ONE.distance_to(Vector4.ZERO)
+
 var is_running = false
 
 @onready var taps: Array[Tap] = %Game.get_taps()
@@ -27,10 +29,11 @@ var is_running = false
 func _process(_delta: float) -> void:
 	current_color = get_aggregate_color()
 	current_fill = get_aggregate_fill()
-	var bonus := goal_distance() * goal_bonus
+	tap_refuel_bonus = max(0.0, ((bonus_max_distance - goal_distance()) / bonus_max_distance) * goal_bonus)
+	
 	%GoalViz.set_color(goal_color, current_color)
 	%GoalViz.set_total(goal_fill, current_fill)
-	%GoalViz.set_bonus(bonus)
+	%GoalViz.set_bonus(tap_refuel_bonus)
 	
 
 func _ready() -> void:
@@ -66,7 +69,9 @@ func goal_distance() -> float:
 	var v := Util.color_to_vec3(goal_color)
 	var vv := Vector4(v.x, v.y, v.z, goal_fill)
 	var vvv := Vector4(current_color.r, current_color.g, current_color.b, current_fill)
-	return vv.distance_to(vvv)	
+	if vv == vvv:
+		return 0.0
+	return vv.distance_to(vvv)
 	
 
 func pause_game():
