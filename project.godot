@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Wordnet="*res://nlp/wordnet.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Music="*res://audio/music.tscn"
 
 [dialogic]
 

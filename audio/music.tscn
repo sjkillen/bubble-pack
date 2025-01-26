@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cssmyt0bokdh6"]
+
+[ext_resource type="Script" path="res://audio/music.gd" id="1_ogumk"]
+[ext_resource type="AudioStream" uid="uid://ceq5d74624oy5" path="res://audio/basicBubbleAlgoLoop.mp3" id="2_c4yhn"]
+[ext_resource type="AudioStream" uid="uid://hm2vogy88y3p" path="res://audio/BubbleAlgo2Loop.mp3" id="3_3t22c"]
+[ext_resource type="AudioStream" uid="uid://d2cy4c57bq476" path="res://audio/poetryGameLoop.mp3" id="4_cr00y"]
+
+[node name="Music" type="Node2D"]
+script = ExtResource("1_ogumk")
+
+[node name="SongBasic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_c4yhn")
+
+[node name="SongAlgo2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3t22c")
+
+[node name="SongPoetry" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_cr00y")
