@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://nx67uqb5hk6o"]
+[gd_scene load_steps=6 format=3 uid="uid://nx67uqb5hk6o"]
 
 [ext_resource type="PackedScene" uid="uid://6bea124lou1q" path="res://world/tap.glb" id="1_j0lni"]
 [ext_resource type="Script" path="res://world/tap.gd" id="2_hbdnj"]
+[ext_resource type="AudioStream" uid="uid://c44qvmkpyxg3p" path="res://sfx/cancel.mp3" id="3_5o886"]
+[ext_resource type="AudioStream" uid="uid://bycoy117ly7ir" path="res://sfx/no_fuel.ogg" id="4_76xfm"]
+[ext_resource type="AudioStream" uid="uid://h6tgn7th0jxk" path="res://sfx/refuel.wav" id="5_ya8pe"]
 
 [node name="tap" instance=ExtResource("1_j0lni")]
 script = ExtResource("2_hbdnj")
@@ -12,3 +15,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13024, 0.546974, 0)
 
 [node name="RefuelSpot" type="Marker3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16982, 0.0859437, 0)
+
+[node name="Grow" type="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource("3_5o886")
+volume_db = -15.0
+
+[node name="NoFuel" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource("4_76xfm")
+volume_db = -30.0
+
+[node name="Refuel" type="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource("5_ya8pe")
+volume_db = -23.0

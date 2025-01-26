@@ -61,6 +61,7 @@ func consume_fuel(radius: float) -> bool:
 	var fuel_used := game.tap_fuel_radius_ratio * radius
 	if fuel_amount < fuel_used:
 		$AnimationPlayer.play("BakedNoFuel")
+		$NoFuel.play()
 		return false
 	fuel_amount = clampf(fuel_amount-fuel_used, 0.0, 1.0)
 	if shader_fuel_tween != null:
@@ -74,6 +75,7 @@ func create_ball():
 		push_error("Already a ball being created?")
 		return
 	var ball := game.create_ball()
+	$Grow.play()
 	ball.global_position = $SpawnMarker.global_position
 	ball.color = create_color
 	ball.radius = game.starting_radius
@@ -111,6 +113,7 @@ func command_release_ball():
 
 func refuel(add_amount: float):
 	$AnimationPlayer.play("RefuelKey")
+	$Refuel.play()
 	fuel_amount = clampf(fuel_amount+add_amount, 0.0, 1.0)
 	if shader_fuel_tween != null:
 		shader_fuel_tween.kill()

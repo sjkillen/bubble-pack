@@ -30,7 +30,6 @@ func _process(_delta: float) -> void:
 	current_color = get_aggregate_color()
 	current_fill = get_aggregate_fill()
 	tap_refuel_bonus = max(0.0, ((bonus_max_distance - goal_distance()) / bonus_max_distance) * goal_bonus)
-	print("dist: ", goal_distance(), " max dist: ", bonus_max_distance)
 	
 	%GoalViz.set_color(goal_color, current_color)
 	%GoalViz.set_total(goal_fill / 12.0, current_fill / 12.0)
@@ -140,4 +139,4 @@ func _on_button_2_pressed() -> void:
 
 func _on_ad_hoc_refuel_pressed() -> void:
 	for tap in taps:
-		tap.refuel(0.1)
+		tap.refuel(0.5)
