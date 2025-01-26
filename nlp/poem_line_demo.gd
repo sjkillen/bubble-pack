@@ -49,9 +49,11 @@ func parameterize():
 
 func start_turn():
 	#$Ball.visible = true
-	$AnimationPlayer.play("flash", -1, 1.3)
+	#$AnimationPlayer.play("flash", -1, 1.3)
+	$Active.visible = true
 
 func end_turn():
 	#$Ball.visible = false
-	$AnimationPlayer.play("RESET")
+	#$AnimationPlayer.play("RESET")
+	$Active.visible = false
 	
