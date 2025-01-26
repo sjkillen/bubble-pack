@@ -16,7 +16,7 @@ class_name Game
 @export var hardened_ball_decay_time := 30.0
 
 @export var goal_color: Color
-@export var goal_fill: float = .95 * 20.0
+@export var goal_fill: float = .95 * 12.0
 var current_color: Color
 var current_fill: float = .95
 
@@ -33,7 +33,7 @@ func _process(_delta: float) -> void:
 	print("dist: ", goal_distance(), " max dist: ", bonus_max_distance)
 	
 	%GoalViz.set_color(goal_color, current_color)
-	%GoalViz.set_total(goal_fill / 20.0, current_fill / 20.0)
+	%GoalViz.set_total(goal_fill / 12.0, current_fill / 12.0)
 	%GoalViz.set_bonus(tap_refuel_bonus)
 	
 

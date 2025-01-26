@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjikoqfg4l3y8"]
+[gd_scene load_steps=8 format=3 uid="uid://bjikoqfg4l3y8"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_br4d1"]
 [ext_resource type="PackedScene" uid="uid://cjhpvw5xrfmmm" path="res://world/walls.tscn" id="1_e04yj"]
+[ext_resource type="Script" path="res://drop_zone.gd" id="4_7ke8n"]
 [ext_resource type="Script" path="res://lose_zone.gd" id="4_dxybr"]
 
 [sub_resource type="Environment" id="Environment_yp200"]
@@ -20,6 +21,9 @@ fog_depth_end = 6.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5q0a3"]
 size = Vector3(7, 1.85645, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0103r"]
+size = Vector3(18.4877, 7.46875, 15.5571)
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_br4d1")
@@ -54,5 +58,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16578, 0.85781, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10469, 0.85781, 0)
 light_energy = 10.0
 
+[node name="DropZone" type="Area3D" parent="."]
+script = ExtResource("4_7ke8n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DropZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67035, -5.18882, -1.94019)
+shape = SubResource("BoxShape3D_0103r")
+
 [connection signal="body_entered" from="LoseZone" to="LoseZone" method="_on_body_entered"]
 [connection signal="body_exited" from="LoseZone" to="LoseZone" method="_on_body_exited"]
+[connection signal="body_entered" from="DropZone" to="DropZone" method="_on_body_entered"]
