@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bjikoqfg4l3y8" path="res://game.tscn" id="1_ft0x3"]
 [ext_resource type="Script" path="res://game_with_ui.gd" id="1_ye2ji"]
 [ext_resource type="PackedScene" uid="uid://ds6a0icfwpx67" path="res://nlp/poetry_interface.tscn" id="2_ik7ep"]
-[ext_resource type="PackedScene" uid="uid://jvmh2nqy4gnp" path="res://playback.tscn" id="4_2ue5k"]
+[ext_resource type="PackedScene" path="res://playback.tscn" id="4_2ue5k"]
 
 [sub_resource type="Curve" id="Curve_xcwno"]
 _data = [Vector2(0, 0.107659), 0.0, 0.0, 0, 0, Vector2(0.929078, 0.361272), -0.214771, -0.214771, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]

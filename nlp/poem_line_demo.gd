@@ -12,7 +12,7 @@ func _ready() -> void:
 
 var old_vis = true
 
-var default_data = {"color": "#ffffff", "size": 50, "delay": 1}
+var default_data = {"color": "#ffffff", "size": 0.01, "delay": 1}
 var data = default_data
 
 var ball_center = Vector2(0, 0)
