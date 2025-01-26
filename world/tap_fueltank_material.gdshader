@@ -2,6 +2,7 @@ shader_type spatial;
 
 instance uniform float fuel_amount;
 instance uniform vec3 fuel_color : source_color;
+instance uniform vec3 create_color : source_color;
 uniform vec3 no_fuel_color : source_color;
 
 void fragment() {
@@ -11,4 +12,3 @@ void fragment() {
 		ALBEDO = fuel_color;
 	}
 }
-
