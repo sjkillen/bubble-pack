@@ -16,4 +16,3 @@ func _on_body_exited(body: Node3D) -> void:
 
 func ball_alarm(_ball: Ball):
 	push_error("You lose!")
-	get_tree().quit()

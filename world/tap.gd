@@ -5,9 +5,10 @@ class_name Tap
 @export var fuel_color: Color
 @export var create_color: Color
 var held_ball: Ball = null
-var fuel_amount: float = .75 # 0 to 1
+var fuel_amount: float = 1.0 # 0 to 1
 
 enum State {
+	Stalled,
 	Empty,
 	Growing,
 	Holding,
@@ -17,7 +18,7 @@ enum State {
 
 @onready var game := Util.find_game_parent(self)
 
-var shader_fuel_amount: float
+@onready var shader_fuel_amount: float = fuel_amount
 var shader_fuel_tween: Tween = null
 var shader_create_color: Color
 var shader_create_color_tween: Tween = null
@@ -30,6 +31,7 @@ func _process(_delta: float) -> void:
 var delay_ticks := 0
 var current_line: Variant = null
 var target_size := 0.0
+var line_parameters = null
 
 func tick(poem: Poem):
 	if state == State.Holding:
@@ -37,21 +39,34 @@ func tick(poem: Poem):
 		if delay_ticks <= 0:
 			command_release_ball()
 		return
-	if state == State.Empty:
-		current_line = poem.next()
-		var parameters = current_line.parameterize()
-		if not parameters:
+	if state == State.Empty or state == State.Stalled:
+		if state == State.Empty:
+			current_line = poem.next()
+			line_parameters = current_line.parameterize()
+			if not line_parameters:
+				return
+		state = State.Stalled
+		if not consume_fuel(line_parameters["size"]):
 			return
-		delay_ticks = int(parameters["delay"] * game.max_delay_ticks)
-		var size_scale := game.size_curve.sample(parameters["size"])
+		delay_ticks = int(line_parameters["delay"] * game.max_delay_ticks)
+		var size_scale := game.size_curve.sample(line_parameters["size"])
 		target_size = size_scale * game.max_target_size
-		command_set_color(Color.from_string(parameters["color"], Color.WHITE))
+		command_set_color(Color.from_string(line_parameters["color"], Color.WHITE))
 		command_create_ball()
 		held_ball.grow_ball(target_size)
 	else:
 		command_stop_growing()
 	
-	
+func consume_fuel(radius: float) -> bool:
+	var fuel_used := game.tap_fuel_radius_ratio * radius
+	if fuel_amount < fuel_used:
+		return false
+	fuel_amount = clampf(fuel_amount-fuel_used, 0.0, 1.0)
+	if shader_fuel_tween != null:
+		shader_fuel_tween.kill()
+	shader_fuel_tween = create_tween()
+	shader_fuel_tween.tween_property(self, "shader_fuel_amount", fuel_amount, game.time_between_ticks)
+	return true
 
 func create_ball():
 	if held_ball != null:
@@ -64,7 +79,7 @@ func create_ball():
 	held_ball = ball
 	
 func command_create_ball():
-	if state != State.Empty:
+	if state != State.Empty and  state != State.Stalled:
 		push_error("Tap is not empty!")
 		return
 	create_ball()
@@ -91,15 +106,7 @@ func command_release_ball():
 		return
 	state = State.Empty
 	held_ball.release_ball()
-	var fuel_used := game.tap_fuel_radius_ratio * held_ball.radius
-	fuel_amount = clampf(fuel_amount-fuel_used, 0.0, 1.0)
-	if shader_fuel_tween != null:
-		shader_fuel_tween.kill()
-	shader_fuel_tween = create_tween()
-	shader_fuel_tween.tween_property(self, "shader_fuel_amount", fuel_amount, game.time_between_ticks)
 	held_ball = null
-	await shader_fuel_tween.finished
-	shader_fuel_tween = null
 
 func refuel(add_amount: float):
 	fuel_amount = clampf(fuel_amount+add_amount, 0.0, 1.0)
