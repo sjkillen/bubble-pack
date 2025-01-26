@@ -16,7 +16,7 @@ var initial_data: Array[Array] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	lines = get_children()
+	lines = [$"1", $"2", $"3", $"4"]
 	
 	for t in [text_1, text_2, text_3, text_4]:
 		if t.size() > 2:

@@ -1,18 +1,118 @@
-[gd_scene load_steps=3 format=3 uid="uid://bx6uhv58622fd"]
+[gd_scene load_steps=5 format=3 uid="uid://bx6uhv58622fd"]
 
 [ext_resource type="Script" path="res://nlp/poem.gd" id="1_q23bk"]
 [ext_resource type="PackedScene" uid="uid://c8qlay105eiaw" path="res://nlp/poem_line_component.tscn" id="1_yk8dg"]
+[ext_resource type="Script" path="res://nlp/col_label.gd" id="3_arage"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dlymx"]
+bg_color = Color(0, 0.0708333, 0.25, 1)
+corner_radius_top_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
 
 [node name="Poem" type="Node2D"]
 script = ExtResource("1_q23bk")
 
 [node name="1" parent="." instance=ExtResource("1_yk8dg")]
+position = Vector2(0, 32)
 
 [node name="2" parent="." instance=ExtResource("1_yk8dg")]
-position = Vector2(0, 104)
+position = Vector2(0, 136)
 
 [node name="3" parent="." instance=ExtResource("1_yk8dg")]
-position = Vector2(0, 208)
+position = Vector2(0, 240)
 
 [node name="4" parent="." instance=ExtResource("1_yk8dg")]
-position = Vector2(0, 312)
+position = Vector2(0, 344)
+
+[node name="HoldTime" type="Label" parent="."]
+offset_left = 142.0
+offset_top = 37.0
+offset_right = 397.0
+offset_bottom = 66.0
+mouse_filter = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_dlymx")
+text = "HOLD TIME  (❓)"
+script = ExtResource("3_arage")
+
+[node name="Tooltip" type="ColorRect" parent="HoldTime"]
+visible = false
+z_index = 1000
+layout_mode = 0
+offset_left = -8.0
+offset_top = -151.0
+offset_right = 151.0
+offset_bottom = -21.0
+color = Color(0, 0.0705882, 0.25098, 1)
+
+[node name="Label" type="Label" parent="HoldTime/Tooltip"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 150.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 20
+text = "The computer counts the syllables."
+autowrap_mode = 2
+
+[node name="Size" type="Label" parent="."]
+offset_left = 430.0
+offset_top = 37.0
+offset_right = 685.0
+offset_bottom = 66.0
+mouse_filter = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_dlymx")
+text = "SIZE  (❓)"
+script = ExtResource("3_arage")
+
+[node name="Tooltip" type="ColorRect" parent="Size"]
+visible = false
+z_index = 1000
+layout_mode = 0
+offset_left = -8.0
+offset_top = -151.0
+offset_right = 151.0
+offset_bottom = -21.0
+color = Color(0, 0.0705882, 0.25098, 1)
+
+[node name="Label" type="Label" parent="Size/Tooltip"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 150.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 20
+text = "The computer counts the letters."
+autowrap_mode = 2
+
+[node name="Colour" type="Label" parent="."]
+offset_left = 718.0
+offset_top = 37.0
+offset_right = 973.0
+offset_bottom = 66.0
+mouse_filter = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_dlymx")
+text = "COLOUR  (❓)"
+script = ExtResource("3_arage")
+
+[node name="Tooltip" type="ColorRect" parent="Colour"]
+visible = false
+z_index = 1000
+layout_mode = 0
+offset_left = -8.0
+offset_top = -151.0
+offset_right = 151.0
+offset_bottom = -21.0
+color = Color(0, 0.0705882, 0.25098, 1)
+
+[node name="Label" type="Label" parent="Colour/Tooltip"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 150.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 20
+text = "The computer has synesthesia."
+autowrap_mode = 2
