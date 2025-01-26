@@ -33,9 +33,17 @@ animation/import_rest_as_RESET=false
 import_script/path="res://world/import_walls.gd"
 _subresources={
 "materials": {
+"Gold": {
+"use_external/enabled": true,
+"use_external/path": "res://world/Gold.tres"
+},
 "Material": {
 "use_external/enabled": true,
 "use_external/path": "res://world/walls_material.tres"
+},
+"Silver": {
+"use_external/enabled": true,
+"use_external/path": "res://world/Silver.tres"
 }
 },
 "nodes": {

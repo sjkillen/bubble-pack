@@ -89,8 +89,9 @@ size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="FullscreenBalls/SubViewportContainer3/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 0.715254, 0.698865, 0, -0.698865, 0.715254, 0, 1.20693, 1.0859)
+transform = Transform3D(1, 0, 0, 0, 0.907044, 0.421036, 0, -0.421036, 0.907044, 0, 1.321, 1.883)
 current = true
+fov = 36.5
 
 [node name="GoalViz" parent="FullscreenBalls" instance=ExtResource("3_hn5tp")]
 unique_name_in_owner = true
@@ -130,25 +131,23 @@ grow_vertical = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="EditorView"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -904.0
-offset_top = -672.0
-offset_right = 1096.0
-offset_bottom = 1328.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="EditorView/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(2000, 2000)
+size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="EditorView/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 0.927184, 0.374607, 0, -0.374607, 0.927184, 0, 1.1, 1.8)
-fov = 81.4
+current = true
+fov = 57.0
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="EditorView"]
 layout_mode = 1

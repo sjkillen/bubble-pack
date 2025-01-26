@@ -4,7 +4,19 @@
 [ext_resource type="PackedScene" uid="uid://cjhpvw5xrfmmm" path="res://world/walls.tscn" id="1_e04yj"]
 [ext_resource type="Script" path="res://lose_zone.gd" id="4_dxybr"]
 
-[sub_resource type="Environment" id="Environment_yy0ew"]
+[sub_resource type="Environment" id="Environment_yp200"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+glow_enabled = true
+glow_intensity = 0.5
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 1.0
+fog_depth_curve = 0.267943
+fog_depth_begin = 0.0
+fog_depth_end = 6.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5q0a3"]
 size = Vector3(7, 1.85645, 7)
@@ -12,11 +24,14 @@ size = Vector3(7, 1.85645, 7)
 [node name="Game" type="Node3D"]
 script = ExtResource("1_br4d1")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yp200")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.91855, -0.00584356, -0.395262, 0.177211, 0.899878, 0.398518, 0.353359, -0.436103, 0.827618, 0, 0, 0)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.545649, 0.838014, 0, -0.838014, -0.545649, 0, 0, 0)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_yy0ew")
 
 [node name="walls" parent="." instance=ExtResource("1_e04yj")]
 unique_name_in_owner = true
@@ -31,6 +46,13 @@ script = ExtResource("4_dxybr")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LoseZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.984, 0)
 shape = SubResource("BoxShape3D_5q0a3")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16578, 0.85781, 0)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10469, 0.85781, 0)
+light_energy = 10.0
 
 [connection signal="body_entered" from="LoseZone" to="LoseZone" method="_on_body_entered"]
 [connection signal="body_exited" from="LoseZone" to="LoseZone" method="_on_body_exited"]

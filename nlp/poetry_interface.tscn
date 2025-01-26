@@ -8,24 +8,24 @@ position = Vector2(128, 88)
 script = ExtResource("1_n4bmn")
 
 [node name="Line1" type="Line2D" parent="."]
-position = Vector2(11, 195)
-points = PackedVector2Array(33, 396, 155, 23)
+position = Vector2(9, 195)
+points = PackedVector2Array(33, 396, 3, 19)
 width = 20.0
 default_color = Color(0, 0.0705882, 0.25098, 1)
 
 [node name="Mark1" type="ColorRect" parent="."]
-offset_left = 144.0
+offset_left = -8.0
 offset_top = 197.0
-offset_right = 184.0
+offset_right = 32.0
 offset_bottom = 237.0
 color = Color(0, 0.0705882, 0.25098, 1)
 
 [node name="ColorRect" type="ColorRect" parent="Mark1"]
 layout_mode = 0
 offset_left = 10.0
-offset_top = 10.0
+offset_top = 9.0
 offset_right = 30.0
-offset_bottom = 30.0
+offset_bottom = 29.0
 
 [node name="Line2" type="Line2D" parent="."]
 position = Vector2(1147, 195)
@@ -49,15 +49,15 @@ offset_bottom = 30.0
 
 [node name="Line3" type="Line2D" parent="."]
 position = Vector2(675, 13)
-points = PackedVector2Array(-37, 259, -40, 86)
+points = PackedVector2Array(-37, 259, -115, 82)
 width = 20.0
 default_color = Color(0, 0.0705882, 0.25098, 1)
 
 [node name="Mark3" type="ColorRect" parent="."]
-offset_left = 615.0
-offset_top = 95.0
-offset_right = 655.0
-offset_bottom = 135.0
+offset_left = 544.0
+offset_top = 83.0
+offset_right = 584.0
+offset_bottom = 123.0
 color = Color(0, 0.0705882, 0.25098, 1)
 
 [node name="ColorRect" type="ColorRect" parent="Mark3"]

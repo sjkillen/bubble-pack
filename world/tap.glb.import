@@ -37,9 +37,13 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://world/tap_fueltank_material.tres"
 },
+"Gold": {
+"use_external/enabled": true,
+"use_external/path": "res://world/Gold.tres"
+},
 "Tubes": {
 "use_external/enabled": true,
-"use_external/path": "res://world/tap_tubes_material.tres"
+"use_external/path": "res://world/Gold.tres"
 },
 "Wand": {
 "use_external/enabled": true,
