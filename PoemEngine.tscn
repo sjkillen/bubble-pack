@@ -5,5 +5,5 @@ script/source = "extends Node
 
 "
 
-[node name="PoemEngine" type="Node"]
+[node name="PoemEngine2" type="Node"]
 script = SubResource("GDScript_s5dsh")
