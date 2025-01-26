@@ -21,6 +21,7 @@ offset_bottom = 237.0
 color = Color(0, 0.0705882, 0.25098, 1)
 
 [node name="ColorRect" type="ColorRect" parent="Mark1"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 30.0
@@ -40,6 +41,7 @@ offset_bottom = 221.0
 color = Color(0, 0.0705882, 0.25098, 1)
 
 [node name="ColorRect" type="ColorRect" parent="Mark2"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 30.0
@@ -59,6 +61,7 @@ offset_bottom = 135.0
 color = Color(0, 0.0705882, 0.25098, 1)
 
 [node name="ColorRect" type="ColorRect" parent="Mark3"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 30.0

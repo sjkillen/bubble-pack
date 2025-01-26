@@ -1,14 +1,14 @@
 The lack of natural light and collapsing walls remind you why, even as a child, you didn't dare venture here
 As you enter the workshop, a billow of dust and the smell of metal fill your nostrils
-join you center
+join you center [animation="Instant In"]
 you: I guess this is it...
-You pick a thick bound notebook with the word "Manual" crudely scrawled across the front
-Upon opening the tattered cover, you're met with complex schematics for the machine in front of you and  hundreds of tiny words crammed between the margins journaling its creation
 join inventor center
 inventor: Progams? Code? Such primeval things! The finest computers obey only beautiful poetry!
 inventor: My system, of higher kind than humanity, will run only if perfectly balanced with perfect poetry.
 inventor: No one here is capable of anything more than drivel! They simply must keep me around even once the machine is powering the entire town.
+leave inventor [animation="Instant In"]
 you: Ugh, this person must have been insufferable
+join inventor center
 inventor: ... 3 perfectly engineered bubble wands fixed on all side of the basin
 inventor: 3 poems! One for each wand
 inventor: 3 words! The first, breathed into the bubble, filling it with air and giving it size
@@ -16,4 +16,5 @@ inventor: The breathe from the second word hardens around the bubble, giving str
 inventor: and the third,  what the machine feels. What is a colour to us simpletons, is much more to this vastly more complex machine.
 inventor: Each wand, hungry for its own color, must be kept nourished to keep producing bubbles
 inventor: Aha! but in the infinite wisdom of the infinite machine, an infinite quantity of bubbles  may emerge if more than just the wands are kept fed. The basin must be kept full as well!
+leave inventor
 you: If what they say about this machine is true... that it can produce infinite energy... I'm going to have to figure this out.
