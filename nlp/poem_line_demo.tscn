@@ -14,9 +14,8 @@ corner_radius_bottom_left = 1024
 [node name="PoemLineDemo" type="Node2D"]
 script = ExtResource("1_ur1th")
 
-[node name="PoemLine" parent="." node_paths=PackedStringArray("wordnet") instance=ExtResource("2_8a46i")]
+[node name="PoemLine" parent="." instance=ExtResource("2_8a46i")]
 position = Vector2(133, 48)
-wordnet = NodePath("../Wordnet")
 
 [node name="Ball" type="Panel" parent="."]
 anchors_preset = 8

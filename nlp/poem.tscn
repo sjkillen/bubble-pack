@@ -90,7 +90,7 @@ autowrap_mode = 2
 [node name="Colour" type="Label" parent="."]
 offset_left = 718.0
 offset_top = 37.0
-offset_right = 973.0
+offset_right = 987.0
 offset_bottom = 66.0
 mouse_filter = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_dlymx")

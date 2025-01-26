@@ -32,14 +32,20 @@ var LETTERS = [
 var strip = RegEx.new()
 
 var DICT_ROOT = "res://nlp/wordnet-dictionary/src/data/"
+var STOP_WORDS_PATH = "res://nlp/stop-words.txt"
 
 var DICT = {}
+var STOP = {}
+
+var STOP_DATA_VAL = {"stop": true}
 
 func _ready() -> void:
 	strip.compile(r"^\s+|\s+$")
 	
 	for l in LETTERS:
 		DICT[l] = load_letter(l)
+	
+	load_stop_words()
 
 
 func clean(w:String):
@@ -58,6 +64,9 @@ func search(w:String):
 	
 	if w in bank:
 		return bank[w]
+	 
+	if w in STOP:
+		return STOP[w]
 	
 	return
 	
@@ -71,3 +80,9 @@ func load_letter(l:String):
 	if error == OK:
 		return data.data
 	return
+
+func load_stop_words():
+	var f = FileAccess.open(STOP_WORDS_PATH, FileAccess.READ)
+	var data = f.get_as_text().split("\n")
+	for w in data:
+		STOP[w] = STOP_DATA_VAL 

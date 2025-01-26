@@ -133,3 +133,8 @@ func _on_button_2_pressed() -> void:
 		switch_to_machine_view()
 	else:
 		switch_to_editor_view()
+
+
+func _on_ad_hoc_refuel_pressed() -> void:
+	for tap in taps:
+		tap.refuel(1.0)
