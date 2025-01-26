@@ -12,17 +12,25 @@ class_name Game
 @export var size_curve: Curve
 @export var flick_power := 5.0
 @export var fuel_purity_tolerance := 0.8
+@export var goal_bonus := 2.0
+@export var hardened_ball_decay_time := 30.0
 
 @export var goal_color: Color
 @export var goal_fill: float = .95
+var current_color: Color
+var current_fill: float = .95
 
 var is_running = false
 
 @onready var taps: Array[Tap] = %Game.get_taps()
 
 func _process(_delta: float) -> void:
-	%GoalViz.set_color(goal_color, get_aggregate_color())
-	%GoalViz.set_total(goal_fill, get_aggregate_fill())
+	current_color = get_aggregate_color()
+	current_fill = get_aggregate_fill()
+	var bonus := goal_distance() * goal_bonus
+	%GoalViz.set_color(goal_color, current_color)
+	%GoalViz.set_total(goal_fill, current_fill)
+	%GoalViz.set_bonus(bonus)
 	
 
 func _ready() -> void:
@@ -53,7 +61,12 @@ func ball_decayed(ball: Ball):
 			return
 	ball.harden()
 	
-
+func goal_distance() -> float:
+	var v := Util.color_to_vec3(goal_color)
+	var vv := Vector4(v.x, v.y, v.z, goal_fill)
+	var vvv := Vector4(current_color.r, current_color.g, current_color.b, current_fill)
+	return vv.distance_to(vvv)	
+	
 
 func pause_game():
 	if not is_running:

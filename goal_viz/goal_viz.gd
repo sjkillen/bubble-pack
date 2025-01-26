@@ -11,3 +11,6 @@ func set_color(ideal: Color, color: Color):
 func set_total(ideal: float, amount: float):
 	%Total_gauge.set_ideal(ideal)
 	%Total_gauge.set_amount(amount)
+
+func set_bonus(bonus: float):
+	%score.text = "x" + str(float(int(bonus * 10.0)) / 10.0)

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://game_with_ui.gd" id="1_ye2ji"]
 [ext_resource type="PackedScene" uid="uid://ds6a0icfwpx67" path="res://nlp/poetry_interface.tscn" id="2_ik7ep"]
 [ext_resource type="PackedScene" uid="uid://bwbs46a84lmh7" path="res://goal_viz/goal_viz.tscn" id="3_hn5tp"]
-[ext_resource type="PackedScene" path="res://playback.tscn" id="4_2ue5k"]
+[ext_resource type="PackedScene" uid="uid://jvmh2nqy4gnp" path="res://playback.tscn" id="4_2ue5k"]
 [ext_resource type="Shader" path="res://goal_viz/goal_fill.gdshader" id="4_w617o"]
 
 [sub_resource type="Curve" id="Curve_xcwno"]
@@ -105,7 +105,7 @@ offset_top = -167.0
 offset_right = -57.696
 offset_bottom = 221.0
 
-[node name="HSplitContainer" parent="FullscreenBalls/GoalViz" index="0"]
+[node name="HSplitContainer" parent="FullscreenBalls/GoalViz" index="2"]
 split_offset = 210
 
 [node name="TextureRect" parent="FullscreenBalls/GoalViz/HSplitContainer/HBoxContainer/R_gauge/MarginContainer" index="0"]
