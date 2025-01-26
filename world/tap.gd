@@ -109,6 +109,7 @@ func command_release_ball():
 	held_ball = null
 
 func refuel(add_amount: float):
+	$AnimationPlayer.play("RefuelKey")
 	fuel_amount = clampf(fuel_amount+add_amount, 0.0, 1.0)
 	if shader_fuel_tween != null:
 		shader_fuel_tween.kill()
