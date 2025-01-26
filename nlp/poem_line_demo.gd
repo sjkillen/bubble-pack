@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var CADENCE = 3000
+@export var CADENCE = 2000
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
